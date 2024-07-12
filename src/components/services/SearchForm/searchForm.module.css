@@ -1,0 +1,52 @@
+.containerForm {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  border: 2px solid black;
+  margin: 2% auto;
+  padding: 1%;
+  border-radius: 10px;
+}
+
+.containerForm label {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+}
+
+.containerForm .inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.refreshBtn {
+  font-size: 40px;
+}
+
+.containerForm input {
+  width: 60%;
+  margin: 0 0 2%;
+  padding: 0.8%;
+  border-radius: 8px;
+}
+
+.containerForm .filterBtn {
+  width: 33%;
+  margin: 0 auto;
+  padding: 1%;
+  border: none;
+  border-radius: 8px;
+  background-color: #353535;
+  color: whitesmoke;
+}
+
+.containerDates {
+  width: 100%;
+  display: flex;
+  text-align: center;
+}
+
+.containerDates input {
+  margin: 2% auto;
+}

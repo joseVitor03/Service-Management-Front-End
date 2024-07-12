@@ -1,0 +1,50 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100vw;
+  background-color: rgb(37, 37, 37);
+}
+
+.containerImage {
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  background-color: #363636;
+}
+
+.logo {
+  width: 5vw;
+  height: 10vh;
+}
+
+.containerBtn {
+  width: 100vw;
+  display: flex;
+}
+
+.btnHeader:nth-last-child(2) {
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+}
+
+.btnHeader {
+  transition: 1.5s;
+  width: 100%;
+  text-align: center;
+  padding: 2%;
+  color: whitesmoke;
+  background-color: #363636
+}
+
+.containerBtn div:hover {
+  cursor: pointer;
+}
+
+.btnHeaderActived {
+  transition: 1.5s;
+  background-color: rgb(207, 207, 207);
+  text-align: center;
+  width: 100%;
+  padding: 2%;
+}

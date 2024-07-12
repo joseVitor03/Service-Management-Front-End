@@ -1,0 +1,68 @@
+.cardModal {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 60%;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: #F1F2F3;
+}
+
+.cancel {
+  align-self: flex-end;
+  font-size: 30px;
+  margin: 2%;
+}
+
+.cardsPieces {
+  overflow-y: auto;
+  margin: 2%;
+}
+
+.cardPiece {
+  margin: 2%;
+  padding: 2%;
+  border-radius: 12px;
+  border: 2px solid black;
+}
+
+.containerPriceAndQtd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerPriceAndQtd label {
+  display: flex;
+  text-align: center;
+  margin: 0 2%;
+  flex-direction: column;
+}
+
+.containerPriceAndQtd input {
+  padding: 2%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.containerBtn {
+  margin-top: 2%;
+  text-align: center;
+}
+
+.containerBtn button {
+  padding: 1%;
+  border-radius: 10px;
+  border: none;
+  background-color: #353535;
+  color: whitesmoke;
+}
+
+.containerBtn button:hover:enabled {
+  cursor: pointer;
+}
+
+.containerBtn button:disabled {
+  background-color: gray;
+}
+

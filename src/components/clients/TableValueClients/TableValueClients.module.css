@@ -1,0 +1,11 @@
+.dataService td {
+  padding: 1%;
+  background-color: rgb(232, 232, 232);
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.dataService:hover {
+  cursor: pointer;
+}

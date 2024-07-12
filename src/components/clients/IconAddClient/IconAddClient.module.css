@@ -1,0 +1,8 @@
+.icon {
+  font-size: 60px;
+}
+
+.icon:hover {
+  cursor: pointer;
+  color: rgb(24, 208, 82);
+}

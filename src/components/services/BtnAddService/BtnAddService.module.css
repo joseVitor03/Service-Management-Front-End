@@ -1,0 +1,8 @@
+.addService {
+  font-size: 60px;
+}
+
+.addService:hover {
+  cursor: pointer;
+  color: rgb(24, 208, 82);
+}

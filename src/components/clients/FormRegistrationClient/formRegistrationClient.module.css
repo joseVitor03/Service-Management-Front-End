@@ -1,0 +1,123 @@
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.form {
+  display: flex;
+  height: min-content;
+  flex-direction: column;
+  border: 2px solid black;
+  padding: 2%;
+  width: 33vw;
+  margin: 2%;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input, .form select {
+  margin-bottom: 5%;
+}
+
+.carSelected {
+  color: rgb(8, 190, 20);
+}
+
+.carNotSelected {
+  color: red;
+}
+
+
+.containerSearch {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerSearch input {
+  width: 80%;
+  margin-top: 5%;
+}
+
+.containerSearch button {
+  width: 50%;
+}
+
+.btnFilter {
+  background-color: #363636;
+  background-color: #363636;
+  color: whitesmoke;
+}
+
+.containerSearch .btnFilter:hover {
+  cursor: pointer;
+}
+
+.containerSearch input, .containerSearch button {
+  padding: 1%;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 5%;
+}
+
+.containerRefreshAndRegisterCar {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.containerRefreshAndRegisterCar h5 {
+  display: flex;
+}
+
+.containerRefreshAndRegisterCar .refresh {
+  margin-right: -1px;
+}
+
+.btnToogleCar {
+  margin-left: 5px;
+}
+
+.btnToogleCar:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.containerCards {
+  display: flex;
+  width: 50vw;
+  flex-direction: column;
+  overflow-y: auto;
+  margin: 2% auto;
+  align-items: center;
+  height: 85vh;
+}
+
+.refresh {
+  font-size: 40px;
+  margin-right: 7%;
+  align-self: flex-end;
+}
+
+.card {
+  width: 90%;
+  padding: 4%;
+  border: 2px solid black;
+  margin-bottom: 2%;
+}
+
+.card:hover {
+  background-color: whitesmoke;
+  font-weight: 700;
+  cursor: pointer;
+}
+

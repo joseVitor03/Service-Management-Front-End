@@ -1,0 +1,43 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: whitesmoke;
+  overflow: none;
+}
+
+.containerTable {
+  height: 30vh;
+  overflow-y: scroll;
+}
+
+.table {
+  width: 80vw;
+  padding: 0.8% 2% 2% 2%;
+  border-collapse: separate;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.thead th {
+  background-color: #353535;
+  color: #F5F5F5;
+  padding: 1.2%;
+  border-radius: 10px 10px 0 0;
+  width: 10%;
+}
+
+.thead .client {
+  width: 20%;
+}
+
+.containerAddService {
+  right: 2%;
+  bottom: 2%;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}

@@ -1,0 +1,91 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+}
+
+.containerData {
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+}
+
+.containerData button {
+  width: 10vw;
+  padding: 0.5%;
+  background-color: #353535;
+  color: whitesmoke;
+  border-radius: 10px;
+  margin-top: 1%;
+}
+
+.containerData button:disabled {
+  background-color: gray;
+}
+
+.containerData button:enabled:hover {
+  cursor: pointer;
+}
+
+.containerUpdate {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  height: 60vh;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.containerUpdate button {
+  width: 90%;
+  padding: 0.5%;
+  background-color: #353535;
+  color: whitesmoke;
+  border-radius: 10px;
+  margin: 2% auto;
+}
+
+.cancel {
+  font-size: 30px;
+  margin: 1%;
+}
+
+.cancel:hover {
+  cursor: pointer;
+}
+
+.main h2, .main h1 {
+  padding: 2%;
+}
+
+.containerServices {
+  width: 90vw;
+  margin: 5% auto;
+}
+
+.table {
+  width: 80vw;
+  border-collapse: separate;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  margin: 2% auto;
+}
+
+.thead th {
+  background-color: #353535;
+  color: #F5F5F5;
+  padding: 1.2%;
+  border-radius: 10px 10px 0 0;
+  width: 10%;
+}
+
+.dataService td {
+  padding: 1%;
+  background-color: rgb(232, 232, 232);
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.dataService td:hover {
+  cursor: pointer;
+}

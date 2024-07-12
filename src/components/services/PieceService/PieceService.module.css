@@ -1,0 +1,38 @@
+.containerModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: (-50%, -50%);
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+}
+
+.table {
+  width: 80vw;
+  margin: 4% auto;
+}
+
+.thead th {
+  background-color: #353535;
+  color: #F5F5F5;
+  padding: 1.2%;
+  border-radius: 10px 10px 0 0;
+  width: 10%;
+}
+
+.itens td {
+  padding: 1%;
+  background-color: rgb(232, 232, 232);
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.thead .item {
+  width: 20%;
+}

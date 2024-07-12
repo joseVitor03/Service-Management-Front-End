@@ -1,0 +1,15 @@
+.btnPaid {
+  background-color: green;
+  color: whitesmoke;
+  padding: 1%;
+  margin-bottom: 0.2%;
+  border-radius: 20px;
+}
+
+.btnUnpaid {
+  background-color: red;
+  color: whitesmoke;
+  padding: 1%;
+  margin-bottom: 0.2%;
+  border-radius: 20px;
+}

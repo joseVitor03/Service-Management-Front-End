@@ -1,0 +1,194 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.mainOpenModal {
+  width: 100vw;
+  height: 100vh;
+  filter: blur(5px);
+}
+
+.arrow {
+  position: absolute;
+  font-size: 50px;
+  left: 2%;
+  top: 2%;
+}
+
+.arrow:hover {
+  color: #F55050;
+  cursor: pointer;
+}
+
+.containerBtn {
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.containerModal {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  backdrop-filter: blur(5px);
+}
+
+.btnStatusFalse {
+  margin: 2% 2% 0 0;
+  padding: 10px;
+  border-radius: 10px;
+  align-self: flex-end;
+  color: whitesmoke;
+  background-color: #f55050;
+}
+
+.btnStatusFalse:hover {
+  cursor: pointer;
+}
+
+.btnStatusTrue {
+  margin: 2% 2% 0 0;
+  padding: 10px;
+  border-radius: 10px;
+  align-self: flex-end;
+  color: whitesmoke;
+  background-color: #50f558;
+}
+
+.btnStatusTrue:hover {
+  cursor: pointer;
+}
+
+.btnClient {
+  margin-right: 2%;
+  padding: 10px;
+  border-radius: 10px;
+  align-self: flex-end;
+  color: whitesmoke;
+  background-color: #353535;
+}
+
+.btnPrintOut {
+  margin: 2% 5% 0 0;
+  padding: 10px;
+  border-radius: 10px;
+  align-self: flex-end;
+  color: whitesmoke;
+  background-color: #353535;
+}
+
+.btnPrintOut:hover {
+  cursor: pointer;
+}
+
+.div > h2 {
+  text-align: center;
+  margin-top: 2%;
+}
+
+.containerNote {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  height: 90vh;
+  border: 2px solid black;
+  margin: 2% auto;
+  padding: 2%;
+}
+
+.containerNote header {
+  display: flex;
+  margin: 0 auto;
+  width: 95%;
+  border: 2px solid black;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.nameAndDate {
+  display: flex;
+  border-bottom: 2px solid black;
+  padding: 0.5%;
+  justify-content: space-between;
+}
+
+.infoCar {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoCar h4 {
+  padding: 0.5%;
+}
+
+.tableIntens {
+  width: 95%;
+  border-collapse: separate;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  margin: 2% auto;
+}
+
+.tableIntens table {
+  width: 100%;
+}
+
+.tableService {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  border-collapse: separate;
+  justify-content: flex-end;
+  margin: 2% auto;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.tableService table {
+  width: 50%;
+}
+
+.thead th {
+  background-color: #353535;
+  color: #F5F5F5;
+  padding: 1.2%;
+  border-radius: 10px 10px 0 0;
+  width: 10%;
+}
+
+.itens td {
+  padding: 1%;
+  background-color: rgb(232, 232, 232);
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.thead .item {
+  width: 20%;
+}
+
+ .containerPriceFinal {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: end;
+  margin: 2%;
+  height: 95%;
+}
+
+.containerPriceFinal h2 {
+  margin-top: 2%;
+}
