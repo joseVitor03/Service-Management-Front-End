@@ -1,0 +1,111 @@
+.containerModal {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+}
+
+.headerBtns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.headerBtns button {
+  background-color: #363636;
+  color: whitesmoke;
+  padding: 1%;
+  border-radius: 10px;
+  margin: 1%;
+  border: none;
+}
+
+.headerBtns button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px black;
+}
+
+.cancel {
+  font-size: 30px;
+  margin: 1%;
+}
+
+.cancel:hover {
+  cursor: pointer;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 75vw;
+  background-color: #F5F5F5;
+  padding: 2%;
+  border: 2px solid black;
+  margin: 2%;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  margin: 2%;
+  border: 2px solid black;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+  padding: 2%;
+}
+
+.containerServices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table {
+  width: 100%;
+  padding: 0.8% 2% 2% 2%;
+  border-collapse: separate;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.thead th {
+  background-color: #353535;
+  color: #F5F5F5;
+  padding: 1.2%;
+  width: 10%;
+}
+
+.thead .client {
+  width: 20%;
+}
+
+.table td {
+  padding: 1%;
+  background-color: rgb(232, 232, 232);
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.total {
+  display: flex;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.total h3 {
+  display: flex;
+  margin: 2%;
+}

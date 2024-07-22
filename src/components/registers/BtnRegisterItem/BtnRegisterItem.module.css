@@ -1,0 +1,59 @@
+.container button {
+  width: 20vw;
+  border-radius: 10px;
+  border: none;
+  margin: 2% auto;
+  background-color: #363636;
+  color: whitesmoke;
+  padding: 2%;
+}
+
+.card {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 2%;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header h3 {
+  margin: 2%;
+}
+
+.cancel {
+  margin: 1%;
+  font-size: 25px;
+}
+
+.card input {
+  margin-bottom: 2%;
+  padding: 2%;
+  border: none;
+  border-radius: 10px;
+}
+
+.card button {
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  margin: 2% auto;
+  background-color: #363636;
+  color: whitesmoke;
+  padding: 2%;
+}
+
+.container .btnItem {
+  padding: 10%;
+}
+
+.card button:hover, .btnItem:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 12px black;
+}

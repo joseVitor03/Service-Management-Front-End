@@ -1,0 +1,71 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40vw;
+  height: 30vh;
+  background-color: whitesmoke;
+  border: 2px solid black;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.card header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancel {
+  font-size: 20px;
+  margin: 1% 1% 0 0;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.form label {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  flex-direction: column;
+}
+
+.form input {
+  padding: 2%;
+  margin-bottom: 2%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.form button {
+  width: 90%;
+  padding: 2%;
+  border-radius: 10px;
+  border: none;
+  background-color: #363636;
+  color: whitesmoke;
+}
+
+.form button:disabled {
+  background-color: gray;
+}

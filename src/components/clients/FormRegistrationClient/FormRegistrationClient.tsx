@@ -207,7 +207,12 @@ export default function FormRegistrationClient() {
           <IoRefreshCircleSharp className={styles.refresh} onClick={refresh} />
         </div>
         )}
-          { registerCarToogle && <FormRegistrationCar registerCar={registerCar} />}
+          { registerCarToogle && (
+          <FormRegistrationCar
+            cancel={setRegisterCarToogle}
+            registerCar={registerCar}
+          />
+          )}
           { isLoading ? <div>Carregando...</div> : listCars.map((car) => (
             <div
               className={styles.card}

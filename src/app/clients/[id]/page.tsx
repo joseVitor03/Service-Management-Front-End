@@ -8,6 +8,7 @@ import FormUpdateClient from '@/components/clients/FormUpdateClient/FormUpdateCl
 import { MdCancel } from 'react-icons/md';
 import updateDataClientDB from '@/utils/clients/updateDataClientDB';
 import Swal from 'sweetalert2';
+import Header from '@/components/Header/Header';
 import styles from './page.module.css';
 
 export default function ClientData() {
@@ -44,13 +45,15 @@ export default function ClientData() {
   useEffect(() => {
     const load = async () => {
       const result = await loadServicesByClient(id as string);
-      setData(result);
+      setData({ dataClient: result.dataClient, services: result.services });
     };
     load();
   }, []);
+  console.log(data);
 
   return (
     <main className={styles.main}>
+      <Header />
       <h1>Dados do Cliente:</h1>
       <section className={styles.containerData}>
         <p>

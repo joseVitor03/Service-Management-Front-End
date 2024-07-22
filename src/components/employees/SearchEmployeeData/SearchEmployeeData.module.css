@@ -1,0 +1,147 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container select {
+  width: 20vw;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.containerEmployee {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5% auto;
+}
+
+.btns {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2%;
+}
+
+.btns button {
+  padding: 1.8%;
+  border: none;
+  margin: 1%;
+  border-radius: 10px;
+  background-color: #363636;
+  color: whitesmoke;
+}
+
+.btns button:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 12px black;
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 33vw;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.containerCancel {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancel {
+  margin: 2% 2% -2% 0;
+  font-size: 30px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+}
+
+.form input {
+  padding: 2%;
+  border: none;
+  border-radius: 10px;
+}
+
+.form button {
+  width: 90%;
+  margin: 2% auto;
+  padding: 2%;
+  border: none;
+  border-radius: 10px;
+  background-color: #363636;
+  color: whitesmoke;
+}
+
+.form button:disabled {
+  background-color: gray;
+}
+
+.form button:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 10px black;
+}
+
+.table {
+  width: 80vw;
+  padding: 0.8% 2% 2% 2%;
+  border-collapse: separate;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.table td {
+  padding: 1%;
+  background-color: rgb(232, 232, 232);
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.table td:hover {
+  cursor: pointer;
+}
+
+
+.thead th {
+  background-color: #353535;
+  color: #F5F5F5;
+  padding: 1.2%;
+  border-radius: 10px 10px 0 0;
+  width: 10%;
+}
+
+.paymentFalse {
+  color: rgb(183, 2, 2);
+}
+
+.paymentTrue {
+  color: rgb(4, 207, 4);
+}
+
+.thead .client {
+  width: 20%;
+}
+
+
+.iconAddEmployee {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 2%;
+  font-size: 40px;
+}
+
+.iconAddEmployee:hover {
+  cursor: pointer;
+  color: #18D052;
+}

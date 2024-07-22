@@ -14,7 +14,7 @@ export default async function loadServicesByClient(id: string) {
     },
   });
   const result = await data.json();
-  const dataCLient = await fetch(`${API_URL}/clients/findClient/${id}`, {
+  const dataCLient = await fetch(`${API_URL}/clients/${id}`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -25,5 +25,7 @@ export default async function loadServicesByClient(id: string) {
     redirect('/');
   }
   const resultClient = await dataCLient.json();
+  console.log({ dataCLient, result });
+
   return { services: result, dataClient: resultClient };
 }

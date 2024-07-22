@@ -1,0 +1,14 @@
+.btnRegister {
+  width: 20vw;
+  border-radius: 10px;
+  border: none;
+  margin: 2% auto;
+  background-color: #363636;
+  color: whitesmoke;
+  padding: 10%;
+}
+
+.btnRegister:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 12px black;
+}

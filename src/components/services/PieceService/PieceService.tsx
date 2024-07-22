@@ -4,6 +4,7 @@ import { Pieces } from '@/types/Services';
 import findPiecesDB from '@/utils/services/findPiecesDB';
 import { use, useState } from 'react';
 import { ServiceContext } from '@/app/context/ServiceContext';
+import Swal from 'sweetalert2';
 import ModalSelectPieces from '../ModalSelectPieces/ModalSelectPieces';
 import styles from './PieceService.module.css';
 
@@ -20,6 +21,11 @@ export default function PieceService() {
     if (result.length > 0) {
       setPieces(result);
       setModal(true);
+    } else {
+      Swal.fire({
+        icon: 'info',
+        title: 'nenhum item encontrado.',
+      });
     }
   };
   console.log(piecesServicePage);

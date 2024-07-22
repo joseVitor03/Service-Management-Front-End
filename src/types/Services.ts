@@ -89,3 +89,34 @@ export type NewServiceType = {
   pieces: PieceService[],
   employeeServices: EmployeeService[],
 };
+
+export type ListServiceEmployee = {
+  labor: string;
+  description: string;
+  service: Service;
+};
+
+export type ListServicesProductivityEmployee = {
+  labor: number,
+  description: string,
+  service: {
+    id: number,
+    date: string,
+    client: {
+      id: number,
+      name: string,
+      carColor: string,
+      plate: string,
+      car: {
+        id: number,
+        name: string,
+        year: number,
+        brand: string
+      }
+    }
+  },
+  employee: {
+    id: number,
+    name: string
+  }
+};

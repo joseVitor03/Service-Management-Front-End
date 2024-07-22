@@ -1,0 +1,12 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+}
+
+.containerBtns {
+  display: flex;
+  margin: 10% auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

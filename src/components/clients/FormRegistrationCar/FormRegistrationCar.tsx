@@ -1,11 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, SetStateAction } from 'react';
 import { Car } from '@/types/Services';
+import { MdCancel } from 'react-icons/md';
 import styles from './FormRegistrationCar.module.css';
 
-export default function FormRegistrationCar({ registerCar }:
-{ registerCar: (formCar: Omit<Car, 'id'>) => Promise<void> }) {
+export default function FormRegistrationCar({ registerCar, cancel }:
+{ registerCar: (formCar: Omit<Car, 'id'>) => Promise<void>,
+  cancel: React.Dispatch<SetStateAction<boolean>>
+}) {
   const date = new Date().getFullYear();
   const [form, setForm] = useState <Omit<Car, 'id'>>({
     name: '',
@@ -14,7 +17,10 @@ export default function FormRegistrationCar({ registerCar }:
   });
   return (
     <form className={styles.form}>
-      <h4>Cadastrar carro:</h4>
+      <div className={styles.header}>
+        <h4>Cadastrar carro:</h4>
+        <MdCancel onClick={() => cancel(false)} className={styles.cancel} />
+      </div>
       <input
         onChange={(event) => setForm({
           ...form, name: event.currentTarget.value.toLocaleUpperCase(),

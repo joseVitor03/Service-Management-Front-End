@@ -1,0 +1,44 @@
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card .btnRegister {
+  width: 20vw;
+  border-radius: 10px;
+  border: none;
+  margin: 2% auto;
+  background-color: #363636;
+  color: whitesmoke;
+  padding: 10%;
+}
+
+.card input, .card select {
+  width: 90%;
+  padding: 2%;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+}
+
+.card button {
+  width: 50%;
+  border-radius: 10px;
+  border: none;
+  margin: 2% auto;
+  background-color: #363636;
+  color: whitesmoke;
+  padding: 2%;
+
+}
+
+.card button:hover, .btnRegister:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 12px black;
+}
+
+.containerForm form {
+  display: flex;
+  justify-content: center;
+  width: 40vw;
+}

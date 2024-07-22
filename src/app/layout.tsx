@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Roboto_Serif } from 'next/font/google';
 import './globals.css';
 import { Suspense } from 'react';
 import Loading from './loading';
@@ -7,7 +7,12 @@ import HeaderProvider from './context/HeaderContext';
 import ServiceProvider from './context/ServiceContext';
 import ClientProvider from './context/ClientsContext';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Roboto_Serif({
+  weight: ['400', '700'],
+  style: ['normal'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Fabio Auto Mecânica',

@@ -23,6 +23,11 @@
   display: flex;
 }
 
+.btnHeader:nth-last-child(3) {
+  border-left: 2px solid black;
+}
+
+
 .btnHeader:nth-last-child(2) {
   border-right: 2px solid black;
   border-left: 2px solid black;
