@@ -1,27 +1,72 @@
 .containerSearch {
-  width: 40vw;
+  width: 33vw;
   display: flex;
   flex-direction: column;
   border: 2px solid black;
-  padding: 2%;
   margin: 2%;
   border-radius: 10px;
 }
 
+.containerSearch button:disabled {
+  background-color: gray;
+}
+
 .header {
   display: flex;
+  padding: 1%;
   justify-content: space-between;
 }
 
+.btnShowSearchClient {
+  background-color: #363636;
+  color: whitesmoke;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 2%;
+}
+
+.btnShowSearchClient:hover, .containerSearch button:enabled:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px black;
+}
+
 .cancel {
-  margin-top: -2%;
   font-size: 30px;
+}
+
+.cancel:hover {
+  cursor: pointer;
+}
+
+.span:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .containerSearch label {
   display: flex;
   margin: 2%;
   flex-direction: column;
+}
+
+.containerSearch input {
+  padding: 2%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.containerSearch button {
+  padding: 2%;
+  margin: 2%;
+  border: none;
+  border-radius: 10px;
+  background-color: #363636;
+  color: whitesmoke;
+}
+
+.containerSearch h5 {
+  padding: 2%;
 }
 
 .containerModal {

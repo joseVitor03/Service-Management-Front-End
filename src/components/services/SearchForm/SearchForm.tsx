@@ -138,6 +138,7 @@ export default function SearchForm() {
         className={styles.filterBtn}
         onClick={() => filterServices(filterForm)}
         type="button"
+        title="filtrar"
       >
         Buscar
       </button>

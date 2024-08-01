@@ -1,0 +1,19 @@
+.btn {
+  padding: 2%;
+  border: none;
+  border-radius: 10px;
+  color: #000;
+  align-self: flex-end;
+  width: 20%;
+  margin: 2%;
+  background-color: rgb(44, 244, 44);
+}
+
+.btn:enabled:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px rgb(44, 244, 44);
+}
+
+.btn:disabled {
+  background-color: gray;
+}

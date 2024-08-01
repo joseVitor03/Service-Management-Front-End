@@ -39,6 +39,7 @@ export type BasicDataService = {
   totalService: string,
   date: string,
   paymentStatus: boolean,
+  principalEmployee: Employee,
   client: {
     id: number,
     name: string,
@@ -82,10 +83,11 @@ type EmployeeService = {
 };
 
 export type NewServiceType = {
-  client: Client,
+  clientId: number,
   totalService: number,
   date: string,
   paymentStatus: boolean,
+  principalEmployeeId: number,
   pieces: PieceService[],
   employeeServices: EmployeeService[],
 };

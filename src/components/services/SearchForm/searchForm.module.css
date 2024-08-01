@@ -24,6 +24,10 @@
   font-size: 40px;
 }
 
+.refreshBtn:hover {
+  cursor: pointer;
+}
+
 .containerForm input {
   width: 60%;
   margin: 0 0 2%;
@@ -39,6 +43,11 @@
   border-radius: 8px;
   background-color: #353535;
   color: whitesmoke;
+}
+
+.filterBtn:hover {
+  box-shadow: 0 0 10px black;
+  cursor: pointer;
 }
 
 .containerDates {

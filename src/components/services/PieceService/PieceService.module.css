@@ -12,27 +12,49 @@
   backdrop-filter: blur(5px);
 }
 
-.table {
-  width: 80vw;
-  margin: 4% auto;
+.h3 {
+  margin: 2% 0 0 2%;
 }
 
-.thead th {
-  background-color: #353535;
-  color: #F5F5F5;
-  padding: 1.2%;
-  border-radius: 10px 10px 0 0;
-  width: 10%;
-}
-
-.itens td {
-  padding: 1%;
-  background-color: rgb(232, 232, 232);
-  text-align: center;
+.form {
+  margin-left: 2%;
+  width: 33vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border: 2px solid black;
   border-radius: 10px;
+  padding: 1%;
 }
 
-.thead .item {
-  width: 20%;
+.form label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  padding: 2%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.form button {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 2%;
+  margin: 2%;
+  background-color: #363636;
+  color: whitesmoke;
+}
+
+.form button:disabled {
+  background-color: gray;
+}
+
+.form button:enabled:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px black;
 }

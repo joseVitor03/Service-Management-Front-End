@@ -1,5 +1,7 @@
 import { SetStateAction, Dispatch } from 'react';
-import { NewServiceType, Service } from './Services';
+import {
+  Client, Employee, NewServiceType, Pieces, Service,
+} from './Services';
 
 export type FilterDataType = {
   clientName: string,
@@ -8,6 +10,23 @@ export type FilterDataType = {
   plate: string,
   dateInitial: string,
   dateFinal: string
+};
+
+export type EmployeeInPageType = {
+  id: number,
+  name: string,
+  description: string,
+  labor: number
+};
+
+export type NewServiceInPage = {
+  client: Client,
+  totalService: number,
+  date: string,
+  paymentStatus: boolean,
+  principalEmployee: Employee,
+  pieces: Pieces[],
+  employeeServices: EmployeeInPageType[],
 };
 
 export type ServiceContextType = {
@@ -19,4 +38,8 @@ export type ServiceContextType = {
   setPaidServices: Dispatch<SetStateAction<boolean>>,
   setDataNewService: Dispatch<SetStateAction<NewServiceType>>,
   dataNewService: NewServiceType,
+  setDataNewServiceInPage: Dispatch<SetStateAction<NewServiceInPage>>,
+  dataNewServiceInPage: NewServiceInPage,
+  setListEmployees: Dispatch<SetStateAction<Employee[]>>,
+  listEmployees: Employee[]
 };

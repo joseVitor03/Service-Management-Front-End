@@ -5,13 +5,17 @@
   height: 60%;
   border: 2px solid black;
   border-radius: 10px;
-  background-color: #F1F2F3;
+  background-color: #f0f0f0;
 }
 
 .cancel {
   align-self: flex-end;
   font-size: 30px;
   margin: 2%;
+}
+
+.cancel:hover {
+  cursor: pointer;
 }
 
 .cardsPieces {
@@ -24,6 +28,11 @@
   padding: 2%;
   border-radius: 12px;
   border: 2px solid black;
+}
+
+.cardPiece:hover {
+  cursor: pointer;
+  background-color: white;
 }
 
 .containerPriceAndQtd {
@@ -60,6 +69,7 @@
 
 .containerBtn button:hover:enabled {
   cursor: pointer;
+  box-shadow: 0 0 10px black;
 }
 
 .containerBtn button:disabled {

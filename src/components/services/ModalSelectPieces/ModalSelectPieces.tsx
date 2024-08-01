@@ -9,25 +9,34 @@ import styles from './ModalSelectPieces.module.css';
 type ModalSelectPiecesTypes = {
   pieces: { id: number, name: string }[],
   setModal: React.Dispatch<SetStateAction<boolean>>,
-  setPieceServicePage: React.Dispatch<SetStateAction<Pieces[]>>,
-  pieceServicePage: Pieces[]
 };
 export default function ModalSelectPieces({
-  pieces, setModal, setPieceServicePage,
-  pieceServicePage,
+  pieces, setModal,
 }: ModalSelectPiecesTypes) {
-  const { dataNewService, setDataNewService } = use(ServiceContext);
+  const {
+    dataNewService, setDataNewService,
+    setDataNewServiceInPage, dataNewServiceInPage,
+  } = use(ServiceContext);
   const [selectedPiece, setSelectedPiece] = useState<Pieces>({
     id: 0, name: '', qtdUnit: 0, priceUnit: '',
   });
+
   const selectPiece = (piece: { id: number, name: string }) => {
     setSelectedPiece({ ...selectedPiece, id: piece.id, name: piece.name });
   };
 
   const addPieceInService = () => {
-    setPieceServicePage([...pieceServicePage, selectedPiece]);
+    const total = dataNewServiceInPage.totalService
+      + Number(selectedPiece.priceUnit) * selectedPiece.qtdUnit;
+
+    setDataNewServiceInPage({
+      ...dataNewServiceInPage,
+      totalService: total,
+      pieces: [...dataNewServiceInPage.pieces, selectedPiece],
+    });
     setDataNewService({
       ...dataNewService,
+      totalService: total,
       pieces: [...dataNewService.pieces, {
         qtdUnit: selectedPiece.qtdUnit,
         pieceId: selectedPiece.id,

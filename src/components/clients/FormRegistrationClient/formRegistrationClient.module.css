@@ -1,18 +1,21 @@
 .container {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
-  height: 100vh;
-  justify-content: space-between;
+  overflow: hidden;
 }
 
 .form {
   display: flex;
   height: min-content;
   flex-direction: column;
+  background-color: whitesmoke;
+  border-radius: 10px;
   border: 2px solid black;
   padding: 2%;
   width: 33vw;
-  margin: 2%;
 }
 
 .form label {
@@ -22,6 +25,26 @@
 
 .form input, .form select {
   margin-bottom: 5%;
+  padding: 2%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.form button {
+  padding: 2%;
+  background-color: #363636;
+  border-radius: 10px;
+  border: none;
+  color: whitesmoke;
+}
+
+.form button:disabled {
+  background-color: gray;
+}
+
+.form button:enabled:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px black;
 }
 
 .carSelected {

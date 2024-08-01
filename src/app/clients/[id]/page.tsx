@@ -9,11 +9,14 @@ import { MdCancel } from 'react-icons/md';
 import updateDataClientDB from '@/utils/clients/updateDataClientDB';
 import Swal from 'sweetalert2';
 import Header from '@/components/Header/Header';
+import ModalDeleteClient from '@/components/clients/ModalDeleteClient/ModalDeleteClient';
+import deleteClientDB from '@/utils/clients/deleteClientDB';
 import styles from './page.module.css';
 
 export default function ClientData() {
   const router = useRouter();
   const [formUpdateClient, setFormUpdateClient] = useState(false);
+  const [modalDelete, setModalDelete] = useState(false);
   const [data, setData] = useState<DataClientAndService>({
     services: [],
     dataClient: {
@@ -28,6 +31,30 @@ export default function ClientData() {
     },
   });
   const { id } = useParams();
+
+  const deleteClient = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const client = e.currentTarget;
+    if (client.id === 'yes') {
+      const result = await deleteClientDB(data.dataClient.id);
+      if (result !== 200) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Ocorreu um erro!',
+          timer: 2000,
+          showConfirmButton: false,
+        });
+      } else {
+        Swal.fire({
+          icon: 'success',
+          timer: 2000,
+          title: 'Cliente excluído',
+          showConfirmButton: false,
+        });
+        router.push('/services');
+      }
+    }
+    setModalDelete(false);
+  };
 
   const updateDataClient = async ({ client, event }:
   { client: Client, event: React.FormEvent<HTMLFormElement> }) => {
@@ -49,12 +76,15 @@ export default function ClientData() {
     };
     load();
   }, []);
-  console.log(data);
 
   return (
     <main className={styles.main}>
       <Header />
-      <h1>Dados do Cliente:</h1>
+      <div className={styles.title}>
+        <h1 className={styles.p}>Dados do Cliente:</h1>
+        <button onClick={() => setModalDelete(true)} type="button">Deletar cliente</button>
+      </div>
+      { modalDelete && <ModalDeleteClient deleteClient={deleteClient} /> }
       <section className={styles.containerData}>
         <p>
           Nome:

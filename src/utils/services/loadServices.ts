@@ -11,6 +11,7 @@ export default async function loadServices(): Promise<Service[]> {
     headers: {
       Authorization: `Bearer ${token}`,
     },
+    cache: 'no-store',
   });
 
   const responseServiceTrue = await fetch(`${API_URL}/services/paymentStatusTrue `, {

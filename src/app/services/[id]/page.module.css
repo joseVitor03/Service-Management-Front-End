@@ -48,6 +48,7 @@
   margin: 2% 2% 0 0;
   padding: 10px;
   border-radius: 10px;
+  border: none;
   align-self: flex-end;
   color: whitesmoke;
   background-color: #f55050;
@@ -55,6 +56,7 @@
 
 .btnStatusFalse:hover {
   cursor: pointer;
+  box-shadow: 0 0 10px #f55050;
 }
 
 .btnStatusTrue {
@@ -77,19 +79,22 @@
   align-self: flex-end;
   color: whitesmoke;
   background-color: #353535;
+  border: none;
 }
 
 .btnPrintOut {
   margin: 2% 5% 0 0;
   padding: 10px;
+  border: none;
   border-radius: 10px;
   align-self: flex-end;
   color: whitesmoke;
   background-color: #353535;
 }
 
-.btnPrintOut:hover {
+.btnPrintOut:hover, .btnClient:hover {
   cursor: pointer;
+  box-shadow: 0 0 10px black;
 }
 
 .div > h2 {
@@ -105,6 +110,10 @@
   border: 2px solid black;
   margin: 2% auto;
   padding: 2%;
+}
+
+.mechanic {
+  border-top: 2px solid black;
 }
 
 .containerNote header {

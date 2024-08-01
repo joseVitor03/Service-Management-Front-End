@@ -1,0 +1,120 @@
+.div {
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.div > h2 {
+  justify-self: center;
+  align-self: center;
+  margin-top: 2%;
+}
+
+.containerNote {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  border: 2px solid black;
+  margin: 2% auto;
+  padding: 2%;
+}
+
+.containerNote header {
+  display: flex;
+  margin: 0 auto;
+  width: 95%;
+  border: 2px solid black;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.mechanic {
+  border-top: 2px solid black;
+}
+
+.nameAndDate {
+  display: flex;
+  border-bottom: 2px solid black;
+  padding: 0.5%;
+  justify-content: space-between;
+}
+
+.infoCar {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoCar h4 {
+  padding: 0.5%;
+}
+
+.tableIntens {
+  width: 95%;
+  border-collapse: separate;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  margin: 2% auto;
+}
+
+.tableIntens table {
+  width: 100%;
+}
+
+.tableService {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  border-collapse: separate;
+  justify-content: flex-end;
+  margin: 2% auto;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.tableService table {
+  width: 50%;
+}
+
+.thead th {
+  background-color: #353535;
+  color: #F5F5F5;
+  padding: 1.2%;
+  border-radius: 10px 10px 0 0;
+  width: 10%;
+}
+
+.itens td {
+  padding: 1%;
+  background-color: rgb(232, 232, 232);
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.thead .item {
+  width: 20%;
+}
+
+.trash {
+  color: red;
+}
+
+.trash:hover {
+  cursor: pointer;
+}
+
+ .containerPriceFinal {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: end;
+  margin: 2%;
+  height: 95%;
+}
+
+.containerPriceFinal h2 {
+  margin-top: 2%;
+}

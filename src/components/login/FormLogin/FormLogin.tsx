@@ -9,7 +9,7 @@ import login from '@/utils/login/login';
 import styles from '../../../app/page.module.css';
 import Loading from '../Loading/Loading';
 
-export default function FormLogin() {
+function FormLogin() {
   const [form, setForm] = useState<FormLoginType>({ email: '', password: '' });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -103,3 +103,5 @@ export default function FormLogin() {
     </div>
   );
 }
+
+export default FormLogin;

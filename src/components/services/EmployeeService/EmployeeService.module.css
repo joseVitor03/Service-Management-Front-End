@@ -1,0 +1,44 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 33vw;
+  margin: 2%;
+  padding: 1%;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.card label {
+  display: flex;
+  flex-direction: column;
+  margin: 2% 0 2% 0;
+}
+
+.card select {
+  border-radius: 10px;
+  padding: 2%;
+  border: 1px solid black;
+}
+
+.card input {
+  padding: 2%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.card button {
+  padding: 2%;
+  border: none;
+  border-radius: 10px;
+  background-color: #363636;
+  color: whitesmoke;
+}
+
+.card button:disabled {
+  background-color: gray;
+}
+
+.card button:enabled:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px black;
+}

@@ -1,0 +1,21 @@
+.container {
+  width: 33vw;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 2%;
+  margin: 2%;
+}
+
+.container select {
+  width: 100%;
+  padding: 2%;
+  border-radius: 10px;
+}
+
+.container .selected {
+  background-color: greenyellow;
+}
+
+.container .notSelected {
+  background-color: rgb(255, 106, 106);
+}

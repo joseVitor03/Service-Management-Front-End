@@ -19,6 +19,8 @@ export default function SearchClientByNameAndPlate() {
 
   const loadClients = async () => {
     const result = await loadClientByNameAndPlate(searchClient);
+    console.log(result);
+
     setClients(result);
     if (result.length > 0) {
       setModal(true);
@@ -87,13 +89,21 @@ export default function SearchClientByNameAndPlate() {
               <h5>
                 Caso o cliente não seja cadastrado clique
                 {' '}
-                <span onClick={() => router.push('/clients/newClient')}>
+                <span className={styles.span} onClick={() => router.push('/clients/newClient')}>
                   aqui.
                 </span>
               </h5>
             </div>
           )
-          : <button onClick={() => setClientChange(!clientChange)} type="button">Trocar cliente</button>
+          : (
+            <button
+              className={styles.btnShowSearchClient}
+              onClick={() => setClientChange(!clientChange)}
+              type="button"
+            >
+              Selecionar cliente
+            </button>
+          )
         }
 
     </div>

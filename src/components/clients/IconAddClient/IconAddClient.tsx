@@ -31,6 +31,7 @@ export default function IconAddClient() {
         />
       ) : (
         <PiUserCirclePlusFill
+          title="cadastrar cliente"
           className={styles.icon}
           onClick={changePage}
         />

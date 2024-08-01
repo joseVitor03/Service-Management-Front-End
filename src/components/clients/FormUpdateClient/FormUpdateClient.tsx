@@ -35,6 +35,7 @@ export default function FormUpdateClient({ client, updateDataClient }:
       setListCars(result);
     }
   };
+
   const refresh = () => {
     setNameCar('');
     setListCars(listInitialCars);
@@ -49,6 +50,7 @@ export default function FormUpdateClient({ client, updateDataClient }:
   return (
     <div className={styles.container}>
       <form onSubmit={(event) => updateDataClient({ client: form, event })} className={styles.form}>
+        <h3>Dados:</h3>
         <label htmlFor="name">
           Nome:
           <input
@@ -77,6 +79,15 @@ export default function FormUpdateClient({ client, updateDataClient }:
           <option value="JEEP">JEEP</option>
         </select>
         <button disabled={form.car.brand === ''} onClick={loadCars} type="button">Buscar carro</button>
+        <h4>
+          Carro selecionado:
+          {' '}
+          {form.car.name}
+          {' '}
+          -
+          {' '}
+          {form.car.year}
+        </h4>
         <label htmlFor="carColor">
           Cor carro:
           <input
@@ -119,12 +130,16 @@ export default function FormUpdateClient({ client, updateDataClient }:
       <div className={styles.containerCars}>
         <div className={styles.containerFilter}>
           <h3>Filtrar Carros:</h3>
-          <input
-            value={nameCar}
-            onChange={(e) => setNameCar(e.currentTarget.value)}
-            type="text"
-            placeholder="nome carro..."
-          />
+          <label htmlFor="car">
+            Nome carro:
+            <input
+              id="car"
+              value={nameCar}
+              onChange={(e) => setNameCar(e.currentTarget.value)}
+              type="text"
+              placeholder="nome carro..."
+            />
+          </label>
           <button className={styles.btnFilter} onClick={filterCar} type="button">Buscar</button>
 
           { listInitialCars.length !== 0 && (
@@ -134,21 +149,29 @@ export default function FormUpdateClient({ client, updateDataClient }:
               Cadastre
               <div
                 className={styles.btnToogleCar}
-                onClick={() => setRegisterCarToogle(!registerCarToogle)}
+                onClick={() => setRegisterCarToogle(true)}
               >
                 aqui.
               </div>
             </h5>
           </div>
           )}
-          { registerCarToogle && <FormRegistrationCar registerCar={registerCar} />}
+          { registerCarToogle && (
+          <FormRegistrationCar
+            cancel={setRegisterCarToogle}
+            registerCar={registerCar}
+          />
+          )}
         </div>
-        <div className={styles.containerRefresh}>
-          { listInitialCars.length > 0
-           && <IoRefreshCircleSharp className={styles.refresh} onClick={refresh} /> }
-        </div>
+        {!registerCarToogle && listInitialCars.length > 0
+          && (
+            <div className={styles.containerRefresh}>
+              <IoRefreshCircleSharp title="remover filtragem" className={styles.refresh} onClick={refresh} />
+            </div>
+          )}
+        {!registerCarToogle && (
         <div className={styles.containerCards}>
-          {listCars.length > 0 && listCars.map((car) => (
+          { listCars.length > 0 && listCars.map((car) => (
             <div
               className={styles.card}
               key={car.id}
@@ -165,6 +188,7 @@ export default function FormUpdateClient({ client, updateDataClient }:
             </div>
           ))}
         </div>
+        )}
       </div>
     </div>
   );

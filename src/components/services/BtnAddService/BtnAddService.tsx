@@ -31,7 +31,7 @@ export default function BtnAddService() {
             wrapperClass=""
           />
         )
-        : <MdOutlineMedicalServices onClick={changePage} className={styles.addService} />}
+        : <MdOutlineMedicalServices title="cadastrar serviço" onClick={changePage} className={styles.addService} />}
     </div>
   );
 }

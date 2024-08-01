@@ -3,14 +3,13 @@
 import loadCarsByBrand from '@/utils/clients/loadCarsByBrand';
 import { useState } from 'react';
 import { Car } from '@/types/Services';
-import { IoRefreshCircleSharp } from 'react-icons/io5';
 import Swal from 'sweetalert2';
 import registerClientDB from '@/utils/clients/registerClientDB';
 import { useRouter } from 'next/navigation';
 import { FormRegistrationClientType } from '@/types/FormLoginType';
 import registerCarDB from '@/utils/clients/registerCarDB';
 import styles from './formRegistrationClient.module.css';
-import FormRegistrationCar from '../FormRegistrationCar/FormRegistrationCar';
+import SelectCarClient from '../SelectCarClient/SelectCarClient';
 
 const INITIAL_STATE = {
   name: '',
@@ -30,8 +29,9 @@ export default function FormRegistrationClient() {
   const [form, setForm] = useState<FormRegistrationClientType>(INITIAL_STATE);
   const [listCars, setListCars] = useState<Car[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [listInitialCars, setInitialCars] = useState([]);
+  const [listInitialCars, setInitialCars] = useState<Car[]>([]);
   const [nameCar, setNameCar] = useState('');
+  const [modalSelectCar, setModalSelectCar] = useState(false);
   const [registerCarToogle, setRegisterCarToogle] = useState(false);
   const registerClient = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -81,6 +81,7 @@ export default function FormRegistrationClient() {
     if (form.car.brand.length > 0) {
       setIsLoading(true);
       const result = await loadCarsByBrand(form.car.brand);
+      setModalSelectCar(true);
       setInitialCars(result);
       setListCars(result);
       setIsLoading(false);
@@ -90,6 +91,25 @@ export default function FormRegistrationClient() {
 
   return (
     <div className={styles.container}>
+      <h2>Cadastrar novo cliente:</h2>
+      { modalSelectCar
+      && (
+      <SelectCarClient
+        filterCar={filterCar}
+        form={form}
+        nameCar={nameCar}
+        setForm={setForm}
+        setNameCar={setNameCar}
+        refresh={refresh}
+        registerCar={registerCar}
+        registerCarToogle={registerCarToogle}
+        isLoading={isLoading}
+        listCars={listCars}
+        listInitialCars={listInitialCars}
+        setRegisterCarToogle={setRegisterCarToogle}
+        setModalSelectCar={setModalSelectCar}
+      />
+      )}
       <form
         className={styles.form}
         onSubmit={(e) => registerClient(e)}
@@ -181,56 +201,6 @@ export default function FormRegistrationClient() {
           Cadastrar
         </button>
       </form>
-      <div className={styles.containerSearch}>
-        <h3>Filtrar Carros:</h3>
-        <input
-          value={nameCar}
-          onChange={(e) => setNameCar(e.currentTarget.value)}
-          type="text"
-          placeholder="nome carro..."
-        />
-        <button className={styles.btnFilter} onClick={filterCar} type="button">Buscar</button>
-        <div className={styles.containerCards}>
-          { listInitialCars.length !== 0
-        && (
-        <div className={styles.containerRefreshAndRegisterCar}>
-          <h5>
-            Não encontrou o carro desejado?
-            Cadastre
-            <div
-              className={styles.btnToogleCar}
-              onClick={() => setRegisterCarToogle(!registerCarToogle)}
-            >
-              aqui.
-            </div>
-          </h5>
-          <IoRefreshCircleSharp className={styles.refresh} onClick={refresh} />
-        </div>
-        )}
-          { registerCarToogle && (
-          <FormRegistrationCar
-            cancel={setRegisterCarToogle}
-            registerCar={registerCar}
-          />
-          )}
-          { isLoading ? <div>Carregando...</div> : listCars.map((car) => (
-            <div
-              className={styles.card}
-              key={car.id}
-              onClick={() => setForm({ ...form, car })}
-            >
-              <p>
-                Nome:
-                {car.name}
-              </p>
-              <p>
-                Ano:
-                {car.year}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }

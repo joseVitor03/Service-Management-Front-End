@@ -28,7 +28,7 @@ export default function TableValueService({ data }: PropsService) {
               key={id}
               onClick={() => router.push(`/services/${id}`)}
             >
-              <td>{client.name}</td>
+              <td>{!client.name ? '' : client.name}</td>
               <td>{client.car.name}</td>
               <td>{client.carColor}</td>
               <td>{client.car.year}</td>

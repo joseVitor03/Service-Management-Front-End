@@ -3,18 +3,22 @@
 import { HeaderContextType } from '@/types/HeaderContextType';
 import { useRouter } from 'next/navigation';
 import { createContext, use } from 'react';
-import { INITIAL_STATE_NEW_SERVICE, ServiceContext } from './ServiceContext';
+import {
+  INITIAL_STATE_NEW_SERVICE, INITIAL_STATE_NEW_SERVICE_IN_PAGE,
+  ServiceContext,
+} from './ServiceContext';
 
 export const HeaderContext = createContext({} as HeaderContextType);
 
 export default function HeaderProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const { setDataNewService } = use(ServiceContext);
+  const { setDataNewService, setDataNewServiceInPage } = use(ServiceContext);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, path: string) => {
     const { id } = e.currentTarget;
     if (`/${e.currentTarget.id}` !== path) {
       setDataNewService(INITIAL_STATE_NEW_SERVICE);
+      setDataNewServiceInPage(INITIAL_STATE_NEW_SERVICE_IN_PAGE);
       router.push(`/${id}`);
     }
   };

@@ -13,6 +13,9 @@ import { useReactToPrint } from 'react-to-print';
 import ModalUpdatePaymentStatusService from '@/components/services/ModalUpdatePaymentStatusService/ModalUpdatePaymentStatusService';
 import updatePaymentStatusService from '@/utils/services/updatePaymentStatusServiceDB';
 import Header from '@/components/Header/Header';
+import ModalDeleteService from '@/components/services/ModalDeleteService/ModalDeleteService';
+import deleteServiceDB from '@/utils/services/deleteServiceDB';
+import Swal from 'sweetalert2';
 import styles from './page.module.css';
 
 const INITIAL_STATE_SERVICE_DETAILS = {
@@ -31,6 +34,10 @@ const INITIAL_STATE_SERVICE_DETAILS = {
         year: 0,
       },
     },
+    principalEmployee: {
+      id: 0,
+      name: '',
+    },
     date: '',
     totalService: '',
     paymentStatus: false,
@@ -42,8 +49,10 @@ export default function Service() {
   const router = useRouter();
   const { id }: { id: string } = useParams();
   const [service, setService] = useState<SimplifyFindServiceType>(INITIAL_STATE_SERVICE_DETAILS);
-  const [modal, setModal] = useState(false);
+  const [modalUpdate, setModalUpdate] = useState(false);
+  const [modalDelete, setModalDelete] = useState(false);
   const componentRef = useRef(null);
+
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
@@ -65,11 +74,35 @@ export default function Service() {
         });
       }
     }
-    setModal(!modal);
+    setModalUpdate(!modalUpdate);
   };
 
   const updateStatusService = async () => {
-    setModal(!modal);
+    setModalUpdate(!modalUpdate);
+  };
+
+  const deleteService = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const value = e.currentTarget;
+    if (value.id === 'yes') {
+      const result = await deleteServiceDB(Number(id));
+      if (result !== 200) {
+        Swal.fire({
+          icon: 'error',
+          timer: 2000,
+          title: 'Ocorreu um erro!',
+          showConfirmButton: false,
+        });
+      } else {
+        Swal.fire({
+          icon: 'success',
+          timer: 2000,
+          title: 'Serviço deletado.',
+          showConfirmButton: false,
+        });
+        router.push('/services');
+      }
+    }
+    setModalDelete(false);
   };
 
   useEffect(() => {
@@ -84,13 +117,21 @@ export default function Service() {
 
     <main className={styles.main}>
       <Header />
-      {modal
+      {modalUpdate
       && (
         <div className={styles.containerModal}>
           <ModalUpdatePaymentStatusService confirmUpdate={confirmUpdate} />
         </div>
       ) }
+      { modalDelete && <ModalDeleteService deleteService={deleteService} />}
       <div className={styles.containerBtn}>
+        <button
+          onClick={() => setModalDelete(true)}
+          className={styles.btnClient}
+          type="button"
+        >
+          Deletar Serviço
+        </button>
         <button
           type="button"
           className={styles.btnClient}
@@ -148,6 +189,11 @@ export default function Service() {
                 {' '}
                 {service.basicServiceData.client.plate}
               </h4>
+              <h4 className={styles.mechanic}>
+                Mecânico responsavel:
+                {' '}
+                {service.basicServiceData.principalEmployee.name}
+              </h4>
             </div>
           </header>
           <div className={styles.tableIntens}>
@@ -183,8 +229,8 @@ export default function Service() {
               </thead>
               <tbody className={styles.itens}>
                 {service.employees.map(({ employee, labor, description }) => (
-                  <tr key={employee.id}>
-                    <td>{employee.name}</td>
+                  <tr key={employee !== null ? employee.id : service.basicServiceData.id}>
+                    <td>{employee !== null && employee.name}</td>
                     <td>{description}</td>
                     <td>{labor}</td>
                   </tr>

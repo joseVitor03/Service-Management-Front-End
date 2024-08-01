@@ -6,7 +6,6 @@ export default function NewClient() {
   return (
     <main className={styles.main}>
       <Header />
-      <h2>Cadastrar novo cliente:</h2>
       <section>
         <FormRegistrationClient />
       </section>

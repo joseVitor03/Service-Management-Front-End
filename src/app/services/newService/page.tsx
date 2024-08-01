@@ -1,22 +1,28 @@
 import Header from '@/components/Header/Header';
 import SearchClientByNameAndPlate from '@/components/services/SearchClientByNameAndPlate/SearchClientByNameAndPlate';
-import ClientDataCSC from '@/components/services/ClientDataCSC/ClientDataCSC';
 import PieceService from '@/components/services/PieceService/PieceService';
+import ClientData from '@/components/services/ClientData/ClientData';
+import EmployeeService from '@/components/services/EmployeeService/EmployeeService';
+import BtnRegisterService from '@/components/services/BtnRegisterService/BtnRegisterService';
+import PrincipalEmployeeInService from '@/components/services/PrincipalEmployeeInService/PrincipalEmployeeInService';
 import styles from './page.module.css';
 
 export default function newService() {
   return (
-    <main>
+    <main className={styles.main}>
       <Header />
-      <section className={styles.containerSearchClient}>
-        <SearchClientByNameAndPlate />
-      </section>
-      <section className={styles.containerDataClient}>
-        <ClientDataCSC />
-      </section>
-      <section className={styles.containerPieces}>
-        <PieceService />
-      </section>
+      <div className={styles.container}>
+        <section className={styles.containerForms}>
+          <PrincipalEmployeeInService />
+          <SearchClientByNameAndPlate />
+          <PieceService />
+          <EmployeeService />
+        </section>
+        <section className={styles.containerDataClient}>
+          <ClientData />
+          <BtnRegisterService />
+        </section>
+      </div>
     </main>
   );
 }

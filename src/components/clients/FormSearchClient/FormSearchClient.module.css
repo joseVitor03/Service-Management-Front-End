@@ -32,6 +32,10 @@
   font-size: 40px;
 }
 
+.refresh:hover {
+  cursor: pointer;
+}
+
 .form button {
   width: 50%;
   margin: 2% auto 0;
@@ -40,4 +44,9 @@
   border: none;
   background-color: #353535;
   color: whitesmoke;
+}
+
+.form button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px black;
 }

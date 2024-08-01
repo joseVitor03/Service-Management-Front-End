@@ -21,27 +21,29 @@ export default async function Services() {
       <Header />
       <SearchForm />
       <BtnServicePaid />
-      <div className={styles.containerTable}>
-        <table className={styles.table}>
-          <thead className={styles.thead}>
-            <tr>
-              <th className={styles.client}>Cliente</th>
-              <th>Carro</th>
-              <th>Cor do Veículo</th>
-              <th>Ano</th>
-              <th>Placa</th>
-              <th>Total</th>
-              <th>Serviço Pago</th>
-              <th>Data</th>
-            </tr>
-          </thead>
-          { data.length > 0
-            ? <TableValueService data={data} />
-            : (
-              <h4>Nenhum serviço</h4>
-            )}
-        </table>
-      </div>
+      { data.length > 0 && (
+        <div className={styles.containerTable}>
+          <table className={styles.table}>
+            <thead className={styles.thead}>
+              <tr>
+                <th className={styles.client}>Cliente</th>
+                <th>Carro</th>
+                <th>Cor do Veículo</th>
+                <th>Ano</th>
+                <th>Placa</th>
+                <th>Total</th>
+                <th>Serviço Pago</th>
+                <th>Data</th>
+              </tr>
+            </thead>
+            { data.length > 0
+              ? <TableValueService data={data} />
+              : (
+                <h4>Nenhum serviço</h4>
+              )}
+          </table>
+        </div>
+      )}
       <div className={styles.containerAddService}>
         <BtnAddService />
       </div>

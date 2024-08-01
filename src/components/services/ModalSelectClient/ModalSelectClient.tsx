@@ -9,10 +9,14 @@ import styles from './ModalSelectClient.module.css';
 export default function ModalSelectClient({ clients, setModal, setClientChange }:
 { clients: Client[], setModal: React.Dispatch<SetStateAction<boolean>>,
   setClientChange: React.Dispatch<SetStateAction<boolean>> }) {
-  const { dataNewService, setDataNewService } = use(ServiceContext);
+  const {
+    dataNewService, setDataNewService,
+    dataNewServiceInPage, setDataNewServiceInPage,
+  } = use(ServiceContext);
 
   const selectClient = (client: Client) => {
-    setDataNewService({ ...dataNewService, client });
+    setDataNewService({ ...dataNewService, clientId: client.id });
+    setDataNewServiceInPage({ ...dataNewServiceInPage, client });
     setModal(false);
     setClientChange(false);
   };

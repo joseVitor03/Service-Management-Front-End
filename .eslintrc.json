@@ -12,6 +12,7 @@
       "jsx-a11y/click-events-have-key-events": "off",
       "jsx-a11y/no-static-element-interactions": "off",
       "react/jsx-no-constructed-context-values": "off",
-      "semi": ["error", "always"]
+      "semi": ["error", "always"],
+      "jsx-a11y/control-has-associated-label": "off"
     }
   }

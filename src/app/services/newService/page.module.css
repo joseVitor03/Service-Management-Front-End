@@ -1,7 +1,17 @@
-/* .containerSearchClient {
+.main {
   width: 100vw;
   height: 100vh;
-  position: absolute;
-  top: 0;
-  background-color: red;
-} */
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.main .containerDataClient {
+  width: 65vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -6,10 +6,20 @@
   border-radius: 20px;
 }
 
+.btnPaid:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px green;
+}
+
 .btnUnpaid {
   background-color: red;
   color: whitesmoke;
   padding: 1%;
   margin-bottom: 0.2%;
   border-radius: 20px;
+}
+
+.btnUnpaid:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px red;
 }

@@ -195,6 +195,7 @@ export default function SearchEmployeeData({ employees }: { employees: Employee[
       </div>
       )}
       <MdPersonAddAlt1
+        title="cadastrar funcionário"
         onClick={() => setModalAddEmployee(true)}
         className={styles.iconAddEmployee}
       />

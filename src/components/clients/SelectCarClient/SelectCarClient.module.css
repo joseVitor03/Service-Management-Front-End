@@ -1,0 +1,79 @@
+.containerSearch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+  overflow-y: hidden;
+}
+
+.card {
+  width: 50%;
+  height: 60%;
+  padding: 2%;
+  background-color: whitesmoke;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.card input {
+  width: 100%;
+  padding: 2%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.card button {
+  width: 100%;
+  padding: 2%;
+  border: none;
+  border-radius: 10px;
+  background-color: #363636;
+  color: whitesmoke;
+  margin-top: 2%;
+}
+
+.containerRefreshAndRegisterCar {
+  width: 100%;
+  display: flex;
+  margin: 2% auto;
+  justify-content: space-between;
+}
+
+.text {
+  display: flex;
+}
+
+.btnToogleCar {
+  margin-left: 5px;
+}
+
+.btnToogleCar:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.refresh {
+  font-size: 30px;
+}
+
+.containerCardsCar {
+  display: flex;
+  height: 33cqh;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.cardCar {
+  width: 100%;
+  border: 1px solid black;
+  padding: 2%;
+  margin: 1% auto;
+  border-radius: 10px;
+}

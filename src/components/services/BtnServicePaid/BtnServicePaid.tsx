@@ -11,6 +11,7 @@ export default function BtnServicePaid() {
       className={paidServices ? styles.btnPaid : styles.btnUnpaid}
       onClick={() => setPaidServices(!paidServices)}
       type="button"
+      title={paidServices ? 'trocar para serviços pendentes' : 'trocar para serviços pagos'}
     >
       Serviços Pagos
     </button>
