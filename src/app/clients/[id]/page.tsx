@@ -75,7 +75,7 @@ export default function ClientData() {
       setData({ dataClient: result.dataClient, services: result.services });
     };
     load();
-  }, []);
+  }, [id]);
 
   return (
     <main className={styles.main}>

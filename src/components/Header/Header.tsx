@@ -10,7 +10,6 @@ import logo from '../../images/IMG-20240604-WA0000.jpg';
 export default function Header() {
   const path = usePathname();
   const { handleClick } = useContext(HeaderContext);
-  console.log(path);
 
   return (
     <header className={styles.header}>

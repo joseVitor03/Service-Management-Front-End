@@ -111,7 +111,7 @@ export default function Service() {
       setService(data);
     };
     load();
-  }, []);
+  }, [id]);
 
   return (
 

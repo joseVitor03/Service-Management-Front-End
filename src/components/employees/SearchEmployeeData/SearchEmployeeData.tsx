@@ -68,7 +68,6 @@ export default function SearchEmployeeData({ employees }: { employees: Employee[
     setModalProductivity(true);
     setEmployeeProductivity(result);
   };
-  console.log(searchServicesEmployee);
 
   return (
     <div className={styles.container}>

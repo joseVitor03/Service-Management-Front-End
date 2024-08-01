@@ -2,17 +2,12 @@
 
 import { Pieces } from '@/types/Services';
 import findPiecesDB from '@/utils/services/findPiecesDB';
-import { use, useState } from 'react';
-import { ServiceContext } from '@/app/context/ServiceContext';
+import { useState } from 'react';
 import Swal from 'sweetalert2';
 import ModalSelectPieces from '../ModalSelectPieces/ModalSelectPieces';
 import styles from './PieceService.module.css';
 
 export default function PieceService() {
-  const {
-    dataNewService, setDataNewService,
-    dataNewServiceInPage, setDataNewServiceInPage,
-  } = use(ServiceContext);
   const [pieces, setPieces] = useState<Pieces[]>([]);
   const [pieceName, setPieceName] = useState('');
   const [modal, setModal] = useState(false);

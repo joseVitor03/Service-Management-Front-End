@@ -45,7 +45,6 @@ export default function FormUpdateClient({ client, updateDataClient }:
       .includes(nameCar.toLocaleLowerCase())));
     setListCars(result);
   };
-  console.log(form);
 
   return (
     <div className={styles.container}>

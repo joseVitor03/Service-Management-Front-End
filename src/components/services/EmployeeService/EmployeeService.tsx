@@ -35,11 +35,10 @@ export default function EmployeeService() {
       setListEmployees(result);
     };
     load();
-  }, []);
+  }, [router, setListEmployees]);
 
   const handleChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { id, value } = e.currentTarget.options[e.currentTarget.selectedIndex];
-    console.log(id, value);
     setEmployeeService({ ...employeeService, id: Number(id), name: value });
   };
 
@@ -74,8 +73,6 @@ export default function EmployeeService() {
       ],
     });
   };
-
-  console.log(dataNewService);
 
   return (
     <div className={styles.card}>

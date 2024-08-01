@@ -87,7 +87,6 @@ export default function FormRegistrationClient() {
       setIsLoading(false);
     }
   };
-  console.log(form);
 
   return (
     <div className={styles.container}>

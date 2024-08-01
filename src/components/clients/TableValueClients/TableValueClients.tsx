@@ -15,7 +15,7 @@ export default function TableValueClients({ data }: { data: Client[] }) {
       populateListClient(data);
     };
     load();
-  }, []);
+  }, [data, populateListClient]);
 
   return (
     <tbody className={styles.dataService}>

@@ -23,7 +23,6 @@ export default function FormSearchClient() {
   const [form, setForm] = useState<FormType>(INITIAL_FORM);
   const filterClients = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('a');
 
     const result = clients.filter((client) => (client.name.toLocaleUpperCase()
       .includes(form.name.toLocaleUpperCase())
