@@ -4,17 +4,20 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 import { MdCancel } from 'react-icons/md';
 import registerItemDB from '@/utils/registers/registerItemDB';
-import { useRouter } from 'next/navigation';
 import styles from './BtnRegisterItem.module.css';
 
 export default function BtnRegisterItem() {
   const [register, setRegister] = useState(false);
   const [item, setItem] = useState('');
-  const router = useRouter();
+
   const registerItem = async () => {
     const result = await registerItemDB(item);
-    if (result.message) {
-      router.push('/');
+    if (result.status !== 201) {
+      Swal.fire({
+        icon: 'error',
+        title: result.message,
+        timer: 2000,
+      });
     } else {
       setRegister(false);
       Swal.fire({
@@ -40,11 +43,12 @@ export default function BtnRegisterItem() {
             id="name"
             placeholder="filtro ar"
           />
-          <button onClick={registerItem} type="button">Cadastrar Item</button>
+          <button id="registerItem" onClick={registerItem} type="button">Cadastrar Item</button>
         </div>
       )
         : (
           <button
+            id="btnRegisterItem"
             className={styles.btnItem}
             onClick={() => setRegister(true)}
             type="button"

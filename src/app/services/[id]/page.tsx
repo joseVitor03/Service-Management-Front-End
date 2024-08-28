@@ -42,7 +42,7 @@ const INITIAL_STATE_SERVICE_DETAILS = {
     totalService: '',
     paymentStatus: false,
   },
-  pieces: [],
+  itens: [],
   employees: [],
 };
 export default function Service() {
@@ -126,6 +126,7 @@ export default function Service() {
       { modalDelete && <ModalDeleteService deleteService={deleteService} />}
       <div className={styles.containerBtn}>
         <button
+          id="btnDelete"
           onClick={() => setModalDelete(true)}
           className={styles.btnClient}
           type="button"
@@ -133,6 +134,7 @@ export default function Service() {
           Deletar Serviço
         </button>
         <button
+          id="btnClientDetails"
           type="button"
           className={styles.btnClient}
           onClick={() => router.push(`/clients/${service.basicServiceData.client.id}`)}
@@ -142,6 +144,7 @@ export default function Service() {
           {service.basicServiceData.client.name}
         </button>
         <button
+          id="btnUpdate"
           className={service.basicServiceData.paymentStatus ? styles.btnStatusTrue
             : styles.btnStatusFalse}
           onClick={updateStatusService}
@@ -207,12 +210,12 @@ export default function Service() {
                 </tr>
               </thead>
               <tbody className={styles.itens}>
-                {service.pieces.map((piece) => (
-                  <tr key={piece.id}>
-                    <td>{piece.name}</td>
-                    <td>{piece.qtdUnit}</td>
-                    <td>{piece.priceUnit}</td>
-                    <td>{(Number(piece.priceUnit) * piece.qtdUnit).toFixed(2)}</td>
+                {service.itens.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item.name}</td>
+                    <td>{item.qtdUnit}</td>
+                    <td>{item.priceUnit}</td>
+                    <td>{(Number(item.priceUnit) * item.qtdUnit).toFixed(2)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -240,9 +243,9 @@ export default function Service() {
           </div>
           <div className={styles.containerPriceFinal}>
             <h3>
-              Peças:
+              Itens:
               {' '}
-              {service.pieces.reduce((acc, curr) => acc + (Number(curr.priceUnit)
+              {service.itens.reduce((acc, curr) => acc + (Number(curr.priceUnit)
                 * curr.qtdUnit), 0).toFixed(2)}
             </h3>
             <h3>

@@ -1,0 +1,9 @@
+import './01.Login.cy';
+import './02.Header.cy';
+import './03.Services.cy';
+import './04.Clients.cy';
+import './05.Employees.cy';
+import './07.ServiceDetails.cy';
+import './08.ClientDetails.cy';
+import './09.NewClient.cy';
+import './10.NewService.cy';

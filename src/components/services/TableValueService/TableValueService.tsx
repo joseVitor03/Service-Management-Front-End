@@ -1,13 +1,13 @@
 'use client';
 
 import { PropsService } from '@/types/PropsServices';
-import { use, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { ServiceContext } from '@/app/context/ServiceContext';
 import { useRouter } from 'next/navigation';
 import styles from './tableValueService.module.css';
 
 export default function TableValueService({ data }: PropsService) {
-  const { populateService, services, paidServices } = use(ServiceContext);
+  const { populateService, services, paidServices } = useContext(ServiceContext);
   const router = useRouter();
   useEffect(() => {
     const load = async () => {
@@ -15,7 +15,6 @@ export default function TableValueService({ data }: PropsService) {
     };
     load();
   }, []);
-  console.log(services);
 
   return (
     <tbody className={styles.dataService}>

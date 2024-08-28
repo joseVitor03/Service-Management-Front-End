@@ -4,27 +4,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: whitesmoke;
+  background-color: #E3E6E7;
   overflow: none;
 }
 
 .containerTable {
-  height: 30vh;
-  overflow-y: scroll;
+  height: 25vh;
+  overflow-y: auto;
+}
+
+.containerTable::-webkit-scrollbar {
+  border-radius: 10px;
+  background-color: rgb(216, 216, 216);
+}
+
+.containerTable::-webkit-scrollbar-thumb {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #585757;
 }
 
 .table {
   width: 80vw;
   padding: 0.8% 2% 2% 2%;
   border-collapse: separate;
-  background-color: whitesmoke;
+  background-color: #E3E6E7;
   border-radius: 10px;
 }
 
 .thead th {
   background-color: #353535;
   color: #F5F5F5;
-  padding: 1.2%;
+  padding: 1%;
   border-radius: 10px 10px 0 0;
   width: 10%;
 }

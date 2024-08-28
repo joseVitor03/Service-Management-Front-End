@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import styles from './index.module.css';
-import logo from '../../images/IMG-20240604-WA0000.jpg';
+import logo from '../../images/2kYwIJSloMyjwys9ZDgl5lBpSKf.svg';
 
 export default function Header() {
   const path = usePathname();

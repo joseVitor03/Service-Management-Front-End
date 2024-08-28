@@ -9,7 +9,7 @@ export default function ModalDeleteService({ deleteService }: {
     <div className={styles.main}>
       <div className={styles.card}>
         <div className={styles.containerMessage}>
-          <h3>Tem  certeza que deseja deletar esse cliente?</h3>
+          <h3>Tem certeza que deseja deletar esse serviço?</h3>
         </div>
         <div className={styles.containerBtn}>
           <button

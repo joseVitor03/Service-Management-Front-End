@@ -7,7 +7,7 @@ export default function ModalUpdatePaymentStatusService({ confirmUpdate }: Confi
   return (
     <div className={styles.main}>
       <div className={styles.containerMessage}>
-        <h3>Tem  certeza que deseja atualizar o status de pagamento?</h3>
+        <h3>Tem certeza que deseja atualizar o status de pagamento?</h3>
       </div>
       <div className={styles.containerBtn}>
         <button

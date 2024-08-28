@@ -20,7 +20,7 @@ export default async function Clients() {
       <section className={styles.containerForm}>
         <FormSearchClient />
       </section>
-      <section>
+      <section className={styles.containerTable}>
         <table className={styles.table}>
           <thead className={styles.thead}>
             <tr>

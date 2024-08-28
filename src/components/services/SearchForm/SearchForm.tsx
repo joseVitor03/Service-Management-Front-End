@@ -1,6 +1,6 @@
 'use client';
 
-import { use, useState } from 'react';
+import { useContext, useState } from 'react';
 import { ServiceContext } from '@/app/context/ServiceContext';
 import { FilterDataType } from '@/types/ServiceContext';
 import { IoRefreshCircleSharp } from 'react-icons/io5';
@@ -17,14 +17,14 @@ export default function SearchForm() {
   };
   const {
     refreshServices, services, setServices, paidServices,
-  } = use(ServiceContext);
+  } = useContext(ServiceContext);
   const [filterForm, setFilterForm] = useState<FilterDataType>(INITIAL_FILTER_FORM);
 
   const filterServices = (filterData: FilterDataType) => {
     if (filterData.dateInitial.length === 10 && filterData.dateFinal.length === 10) {
       const result = services.filter((service) => (
-        service.client.name.toLocaleLowerCase().includes(filterData.clientName)
-        && service.client.car.name.toLowerCase().includes(filterData.carName)
+        service.client.name.toLocaleLowerCase().includes(filterData.clientName.toLocaleLowerCase())
+        && service.client.car.name.toLowerCase().includes(filterData.carName.toLocaleLowerCase())
         && service.client.plate.toLocaleUpperCase().includes(filterForm.plate.toLocaleUpperCase())
         && String(service.client.car.year).includes(filterData.year)
         && service.date >= filterData.dateInitial) && service.date <= filterData.dateFinal
@@ -33,8 +33,8 @@ export default function SearchForm() {
       setServices(result);
     } else {
       const result = services.filter((service) => (
-        service.client.name.toLocaleLowerCase().includes(filterData.clientName)
-        && service.client.car.name.toLowerCase().includes(filterData.carName)
+        service.client.name.toLocaleLowerCase().includes(filterData.clientName.toLocaleLowerCase())
+        && service.client.car.name.toLowerCase().includes(filterData.carName.toLocaleLowerCase())
         && service.client.plate.toLocaleUpperCase().includes(filterForm.plate.toLocaleUpperCase())
         && String(service.client.car.year).includes(filterData.year))
         && service.paymentStatus === paidServices);
@@ -66,7 +66,8 @@ export default function SearchForm() {
         </label>
         <IoRefreshCircleSharp
           className={styles.refreshBtn}
-          title="Reinicinar filtragem"
+          id="refreshBtn"
+          title="Reiniciar filtragem"
           onClick={refreshHandleBtn}
           type="button"
         />
@@ -135,6 +136,7 @@ export default function SearchForm() {
         </label>
       </div>
       <button
+        id="filterBtn"
         className={styles.filterBtn}
         onClick={() => filterServices(filterForm)}
         type="button"

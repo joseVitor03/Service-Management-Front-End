@@ -1,5 +1,5 @@
 .btnPaid {
-  background-color: green;
+  background-color: red;
   color: whitesmoke;
   padding: 1%;
   margin-bottom: 0.2%;
@@ -8,11 +8,11 @@
 
 .btnPaid:hover {
   cursor: pointer;
-  box-shadow: 0 0 10px green;
+  box-shadow: 0 0 10px red;
 }
 
 .btnUnpaid {
-  background-color: red;
+  background-color: green;
   color: whitesmoke;
   padding: 1%;
   margin-bottom: 0.2%;
@@ -21,5 +21,5 @@
 
 .btnUnpaid:hover {
   cursor: pointer;
-  box-shadow: 0 0 10px red;
+  box-shadow: 0 0 10px green;
 }

@@ -21,24 +21,16 @@ function FormLogin() {
     e.preventDefault();
     if (form.email.match(REGEXEMAIL) && form.password.match(REGEXPASSWORD)) {
       setIsLoading(true);
-      try {
-        const response = await login({ email: form.email, password: form.password });
+      const response = await login({ email: form.email, password: form.password });
 
-        if (response.token) {
-          await setCokkie(response.token);
-          router.push('/services');
-        } else {
-          Swal.fire({
-            icon: 'warning',
-            title: 'Email ou senha incorreta',
-            timer: 3000,
-          });
-        }
-      } catch (error: any) {
+      if (response.token) {
+        await setCokkie(response.token);
+
+        router.push('/services');
+      } else {
         Swal.fire({
-          title: 'Error',
-          icon: 'error',
-          text: 'problema na requisição',
+          icon: 'warning',
+          title: 'Email ou senha incorreta',
           timer: 3000,
         });
       }
@@ -64,6 +56,7 @@ function FormLogin() {
               <input
                 type="email"
                 id="email"
+                name="email"
                 placeholder="example@gmail.com"
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -75,6 +68,7 @@ function FormLogin() {
               <input
                 type="password"
                 placeholder="Sua senha"
+                name="password"
                 id="password"
                 value={form.password}
                 onChange={(e) => setForm({ ...form, password: e.target.value })}

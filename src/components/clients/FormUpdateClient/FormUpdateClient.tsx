@@ -118,6 +118,7 @@ export default function FormUpdateClient({ client, updateDataClient }:
           />
         </label>
         <button
+          id="btnUpdateClient"
           disabled={client === form || form.name.length < 3
           || !form.phone.match(/^\d{2} \d{5}-\d{4}$/) || form.carColor.length < 4
           || form.car.brand === '' || !form.plate.match(REGEXPLATE)}

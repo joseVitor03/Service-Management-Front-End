@@ -35,9 +35,11 @@ export default function BtnRegisterService() {
   };
   return (
     <button
+      id="btnRegisterService"
       onClick={registerService}
       disabled={dataNewService.clientId === 0
-        || (dataNewService.employeeServices.length === 0 && dataNewService.pieces.length === 0)}
+        || (dataNewService.employeeServices.length === 0 && dataNewService.itens.length === 0)
+      || !dataNewService.principalEmployeeId}
       className={styles.btn}
       type="button"
     >

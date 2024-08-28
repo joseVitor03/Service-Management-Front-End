@@ -11,7 +11,6 @@ export default function PrincipalEmployeeInService() {
   } = use(ServiceContext);
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { id, value } = e.currentTarget.options[e.currentTarget.selectedIndex];
-    console.log(id, value);
     setDataNewServiceInPage({
       ...dataNewServiceInPage,
       principalEmployee: {
@@ -25,6 +24,7 @@ export default function PrincipalEmployeeInService() {
     <div className={styles.container}>
       <h3>Funcionário responsável:</h3>
       <select
+        id="principalEmployee"
         className={dataNewService.principalEmployeeId !== 0 ? styles.selected : styles.notSelected}
         onChange={(e) => handleChange(e)}
       >

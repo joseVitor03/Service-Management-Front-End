@@ -27,7 +27,7 @@ export type Employee = {
   name: string;
 };
 
-export type Pieces = {
+export type Itens = {
   qtdUnit: number,
   priceUnit: string,
   id: number,
@@ -61,7 +61,7 @@ export type SimplifyFindServiceType = {
     labor: string,
     description: string
   }[],
-  pieces: Pieces[],
+  itens: Itens[],
   basicServiceData: BasicDataService
 };
 
@@ -70,8 +70,8 @@ export type DataClientAndService = {
   dataClient: Client
 };
 
-type PieceService = {
-  pieceId: number,
+type ItensService = {
+  itemId: number,
   qtdUnit: number,
   priceUnit: number
 };
@@ -88,7 +88,7 @@ export type NewServiceType = {
   date: string,
   paymentStatus: boolean,
   principalEmployeeId: number,
-  pieces: PieceService[],
+  itens: ItensService[],
   employeeServices: EmployeeService[],
 };
 

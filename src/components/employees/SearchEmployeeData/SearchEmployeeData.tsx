@@ -108,8 +108,8 @@ export default function SearchEmployeeData({ employees }: { employees: Employee[
       <div className={styles.containerEmployee}>
         <h2>{employeeSelected}</h2>
         <div className={styles.btns}>
-          <button onClick={() => setModalRemoveEmployee(true)} type="button">Deseja excluir esse funcionário</button>
-          <button onClick={() => setServiceByDateActive(true)} type="button">Produtividade do func. em um intervalo de datas</button>
+          <button id="removeEmployee" onClick={() => setModalRemoveEmployee(true)} type="button">Deseja excluir esse funcionário</button>
+          <button id="productivityEmployee" onClick={() => setServiceByDateActive(true)} type="button">Produtividade do func. em um intervalo de datas</button>
         </div>
           {servicesByDateActive && (
             <form onSubmit={(e) => searchServicesByDates(e)} className={styles.form}>
@@ -142,6 +142,7 @@ export default function SearchEmployeeData({ employees }: { employees: Employee[
                 && <p>Data final não pode ser menor que a data inicial</p>}
               </label>
               <button
+                id="btnProductivity"
                 disabled={searchServicesEmployee.dateInitial.length === 0
                   || searchServicesEmployee.dateFinal.length === 0
                   || (searchServicesEmployee.dateInitial.length === 10
@@ -170,34 +171,40 @@ export default function SearchEmployeeData({ employees }: { employees: Employee[
                     <th>Data</th>
                   </tr>
                 </thead>
-                { listServices.map(({ service }) => (
-                  <tr
-                    key={service.id}
-                    onClick={() => router.push(`/services/${service.id}`)}
-                  >
-                    <td>{service.client.name}</td>
-                    <td>{service.client.car.name}</td>
-                    <td>{service.client.carColor}</td>
-                    <td>{service.client.car.year}</td>
-                    <td>{service.client.plate}</td>
-                    <td>{service.totalService}</td>
-                    <td>
-                      {!service.paymentStatus ? <p className={styles.paymentFalse}>Pendende</p>
-                        : <p className={styles.paymentTrue}>Pago</p>}
-                    </td>
-                    <td>{service.date.split('-').reverse().join('-')}</td>
-                  </tr>
-                )) }
+                <tbody>
+                  { listServices.map(({ service }) => (
+                    <tr
+                      key={service.id}
+                      onClick={() => router.push(`/services/${service.id}`)}
+                    >
+                      <td>{service.client.name}</td>
+                      <td>{service.client.car.name}</td>
+                      <td>{service.client.carColor}</td>
+                      <td>{service.client.car.year}</td>
+                      <td>{service.client.plate}</td>
+                      <td>{service.totalService}</td>
+                      <td>
+                        {!service.paymentStatus ? <p className={styles.paymentFalse}>Pendende</p>
+                          : <p className={styles.paymentTrue}>Pago</p>}
+                      </td>
+                      <td>{service.date.split('-').reverse().join('-')}</td>
+                    </tr>
+                  )) }
+                </tbody>
               </table>
             </div>
           )}
       </div>
       )}
-      <MdPersonAddAlt1
+      <div
+        id="addEmployee"
         title="cadastrar funcionário"
-        onClick={() => setModalAddEmployee(true)}
         className={styles.iconAddEmployee}
-      />
+      >
+        <MdPersonAddAlt1
+          onClick={() => setModalAddEmployee(true)}
+        />
+      </div>
     </div>
   );
 }

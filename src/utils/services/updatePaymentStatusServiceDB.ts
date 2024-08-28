@@ -15,7 +15,6 @@ export default async function updatePaymentStatusService({ paymentStatus, id }:
       paymentStatus: !paymentStatus,
     }),
   });
-  console.log(result);
 
   return { status: result.status };
 }

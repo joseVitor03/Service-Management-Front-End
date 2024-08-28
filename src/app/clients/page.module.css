@@ -1,26 +1,39 @@
 .page {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 .containerTable {
-  height: 40vh;
+  width: 80vw;
+  height: 30%;
   overflow-y: auto;
+  margin: 0 auto;
+}
+
+.containerTable::-webkit-scrollbar {
+  border-radius: 30px;
+  background-color: rgb(216, 216, 216);
+}
+
+.containerTable::-webkit-scrollbar-thumb {
+  border: 1px solid black;
+  border-radius: 30px;
+  background-color: #585757;
 }
 
 .table {
-  width: 80vw;
-  padding: 0.8% 2% 2% 2%;
+  width: 100%;
+  padding: 0 2% 2% 2%;
   border-collapse: separate;
   background-color: whitesmoke;
   border-radius: 10px;
-  margin: 5% auto;
 }
 
 .thead th {
   background-color: #353535;
   color: #F5F5F5;
-  padding: 1.2%;
+  padding: 1%;
   border-radius: 10px 10px 0 0;
   width: 10%;
 }

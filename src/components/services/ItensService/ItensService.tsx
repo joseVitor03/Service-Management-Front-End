@@ -1,22 +1,22 @@
 'use client';
 
-import { Pieces } from '@/types/Services';
-import findPiecesDB from '@/utils/services/findPiecesDB';
+import { Itens } from '@/types/Services';
+import findItensDB from '@/utils/services/findItensDB';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
-import ModalSelectPieces from '../ModalSelectPieces/ModalSelectPieces';
-import styles from './PieceService.module.css';
+import ModalSelectItens from '../ModalSelectItens/ModalSelectItens';
+import styles from './ItensService.module.css';
 
-export default function PieceService() {
-  const [pieces, setPieces] = useState<Pieces[]>([]);
+export default function ItensService() {
+  const [itens, setItens] = useState<Itens[]>([]);
   const [pieceName, setPieceName] = useState('');
   const [modal, setModal] = useState(false);
 
-  const searchPieces = async (e: React.FormEvent<HTMLFormElement>) => {
+  const searchItens = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const result = await findPiecesDB(pieceName);
+    const result = await findItensDB(pieceName);
     if (result.length > 0) {
-      setPieces(result);
+      setItens(result);
       setModal(true);
     } else {
       Swal.fire({
@@ -28,27 +28,28 @@ export default function PieceService() {
 
   return (
     <>
-      <h3 className={styles.h3}>Peças do serviço:</h3>
+      <h3 className={styles.h3}>Itens do serviço:</h3>
       { modal && (
       <div className={styles.containerModal}>
-        <ModalSelectPieces
+        <ModalSelectItens
           setModal={setModal}
-          pieces={pieces}
+          itens={itens}
         />
       </div>
       ) }
-      <form className={styles.form} onSubmit={(e) => searchPieces(e)}>
+      <form className={styles.form} onSubmit={(e) => searchItens(e)}>
         <label htmlFor="piece">
-          Nome Peça:
+          Nome Item:
           <input
+            id="item"
             value={pieceName}
             onChange={(e) => setPieceName(e.currentTarget.value.toLocaleUpperCase())}
             type="text"
             placeholder="filtro ar"
           />
         </label>
-        <button disabled={pieceName.length < 3} type="submit">
-          Buscar
+        <button id="searchItem" disabled={pieceName.length < 3} type="submit">
+          Buscar item
         </button>
       </form>
     </>

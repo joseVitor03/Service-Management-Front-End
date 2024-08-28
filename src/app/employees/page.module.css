@@ -1,6 +1,19 @@
 .main {
   width: 100vw;
   height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.main::-webkit-scrollbar {
+  border-radius: 10px;
+  background-color: gray;
+}
+
+.main::-webkit-scrollbar-thumb {
+  border: 1px solid black;
+  border-radius: 50px;
+  background-color: #363636;
 }
 
 .main section {

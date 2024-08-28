@@ -59,12 +59,21 @@ export default function ClientData() {
   const updateDataClient = async ({ client, event }:
   { client: Client, event: React.FormEvent<HTMLFormElement> }) => {
     event.preventDefault();
-    await updateDataClientDB(client);
-    Swal.fire({
-      icon: 'success',
-      title: 'Dados atualizados com successo!',
-      timer: 2000,
-    });
+    const result = await updateDataClientDB(client);
+    if (result !== 200) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Ocorreu um erro!',
+        timer: 2000,
+      });
+      router.push('/');
+    } else {
+      Swal.fire({
+        icon: 'success',
+        title: 'Dados atualizados com successo!',
+        timer: 2000,
+      });
+    }
     setFormUpdateClient(false);
     setData({ ...data, dataClient: client });
   };
@@ -72,7 +81,11 @@ export default function ClientData() {
   useEffect(() => {
     const load = async () => {
       const result = await loadServicesByClient(id as string);
-      setData({ dataClient: result.dataClient, services: result.services });
+      if (result.services.message || result.dataClient.message) {
+        router.push('/');
+      } else {
+        setData({ dataClient: result.dataClient, services: result.services });
+      }
     };
     load();
   }, [id]);
@@ -82,10 +95,10 @@ export default function ClientData() {
       <Header />
       <div className={styles.title}>
         <h1 className={styles.p}>Dados do Cliente:</h1>
-        <button onClick={() => setModalDelete(true)} type="button">Deletar cliente</button>
+        <button id="btnDelete" onClick={() => setModalDelete(true)} type="button">Deletar cliente</button>
       </div>
       { modalDelete && <ModalDeleteClient deleteClient={deleteClient} /> }
-      <section className={styles.containerData}>
+      <section id="containerData" className={styles.containerData}>
         <p>
           Nome:
           {' '}

@@ -3,7 +3,7 @@
 import { ServiceContext } from '@/app/context/ServiceContext';
 import { use } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
-import { Pieces } from '@/types/Services';
+import { Itens } from '@/types/Services';
 import styles from './ClientData.module.css';
 
 export default function ClientData() {
@@ -12,18 +12,18 @@ export default function ClientData() {
     setDataNewServiceInPage, setDataNewService, dataNewService,
   } = use(ServiceContext);
 
-  const removePiece = (piece: Pieces) => {
-    const resultForPage = dataNewServiceInPage.pieces.filter(({ id }) => piece.id !== id);
-    const resultForNewService = dataNewService.pieces.filter(({ pieceId }) => pieceId !== piece.id);
+  const removeItem = (item: Itens) => {
+    const resultForPage = dataNewServiceInPage.itens.filter(({ id }) => item.id !== id);
+    const resultForNewService = dataNewService.itens.filter(({ itemId }) => itemId !== item.id);
     setDataNewServiceInPage({
       ...dataNewServiceInPage,
-      totalService: dataNewServiceInPage.totalService - (Number(piece.priceUnit) * piece.qtdUnit),
-      pieces: resultForPage,
+      totalService: dataNewServiceInPage.totalService - (Number(item.priceUnit) * item.qtdUnit),
+      itens: resultForPage,
     });
     setDataNewService({
       ...dataNewService,
-      totalService: dataNewServiceInPage.totalService - (Number(piece.priceUnit) * piece.qtdUnit),
-      pieces: resultForNewService,
+      totalService: dataNewServiceInPage.totalService - (Number(item.priceUnit) * item.qtdUnit),
+      itens: resultForNewService,
     });
   };
 
@@ -102,16 +102,16 @@ export default function ClientData() {
               </tr>
             </thead>
             <tbody className={styles.itens}>
-              {dataNewServiceInPage.pieces.map((piece) => (
-                <tr key={piece.id}>
-                  <td>{piece.name}</td>
-                  <td>{piece.qtdUnit}</td>
-                  <td>{piece.priceUnit}</td>
-                  <td>{(Number(piece.priceUnit) * piece.qtdUnit).toFixed(2)}</td>
+              {dataNewServiceInPage.itens.map((item) => (
+                <tr key={item.id}>
+                  <td>{item.name}</td>
+                  <td>{item.qtdUnit}</td>
+                  <td>{Number(item.priceUnit).toFixed(2)}</td>
+                  <td>{(Number(item.priceUnit) * item.qtdUnit).toFixed(2)}</td>
                   <td>
                     <FaTrashAlt
                       className={styles.trash}
-                      onClick={() => removePiece(piece)}
+                      onClick={() => removeItem(item)}
                     />
                   </td>
                 </tr>
@@ -150,9 +150,9 @@ export default function ClientData() {
         </div>
         <div className={styles.containerPriceFinal}>
           <h3>
-            Peças:
+            Itens:
             {' '}
-            {dataNewServiceInPage.pieces.reduce((acc, curr) => acc + (Number(curr.priceUnit)
+            {dataNewServiceInPage.itens.reduce((acc, curr) => acc + (Number(curr.priceUnit)
                 * curr.qtdUnit), 0).toFixed(2)}
           </h3>
           <h3>

@@ -39,6 +39,11 @@
   margin-top: 2%;
 }
 
+.card button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px black;
+}
+
 .containerRefreshAndRegisterCar {
   width: 100%;
   display: flex;
@@ -63,11 +68,27 @@
   font-size: 30px;
 }
 
+.refresh:hover {
+  cursor: pointer;
+}
+
 .containerCardsCar {
   display: flex;
   height: 33cqh;
+  padding: 2%;
   flex-direction: column;
   overflow-y: scroll;
+}
+
+.containerCardsCar::-webkit-scrollbar {
+  border-radius: 10px;
+  background-color: rgb(216, 216, 216);
+}
+
+.containerCardsCar::-webkit-scrollbar-thumb {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #585757;
 }
 
 .cardCar {
@@ -76,4 +97,8 @@
   padding: 2%;
   margin: 1% auto;
   border-radius: 10px;
+}
+
+.cardCar:hover {
+  cursor: pointer;
 }

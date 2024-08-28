@@ -1,7 +1,6 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
 
@@ -20,12 +19,8 @@ export default async function loadServicesByClient(id: string) {
       Authorization: `Bearer ${token}`,
     },
   });
-  if (data.status === 401 || data.status === 403
-    || dataCLient.status === 401 || dataCLient.status === 403) {
-    redirect('/');
-  }
+
   const resultClient = await dataCLient.json();
-  console.log({ dataCLient, result });
 
   return { services: result, dataClient: resultClient };
 }

@@ -119,7 +119,7 @@ export default function FormRegistrationClient() {
             onChange={(event) => setForm({ ...form, name: event.currentTarget.value })}
             type="text"
             id="name"
-            placeholder="nome cliente"
+            placeholder="maria"
           />
         </label>
         <label htmlFor="phone">
@@ -128,7 +128,7 @@ export default function FormRegistrationClient() {
             type="tel"
             onChange={(event) => setForm({ ...form, phone: event.currentTarget.value })}
             id="phone"
-            placeholder="ex: 61991111234"
+            placeholder="ex: 61 99111-1234"
           />
         </label>
         {form.phone.length > 0 && !form.phone.match(/^\d{11}$/) && <p>formato inválido</p>}
@@ -162,10 +162,12 @@ export default function FormRegistrationClient() {
         <div>
           <p>
             Nome:
+            {' '}
             {form.car.name}
           </p>
           <p>
             Ano:
+            {' '}
             {form.car.year}
           </p>
         </div>
@@ -174,6 +176,7 @@ export default function FormRegistrationClient() {
           Placa:
           <input
             type="text"
+            id="plate"
             value={form.plate}
             placeholder="ABC-1D23"
             onChange={(e) => setForm({ ...form, plate: e.currentTarget.value.toLocaleUpperCase() })}

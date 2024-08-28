@@ -46,7 +46,9 @@ export default function FormSearchClient() {
             onChange={(event) => setForm({ ...form, name: event.currentTarget.value })}
           />
         </label>
-        <IoRefreshCircleSharp title="remover filtragem" className={styles.refresh} onClick={refreshClients} />
+        <div id="refresh">
+          <IoRefreshCircleSharp title="remover filtragem" className={styles.refresh} onClick={refreshClients} />
+        </div>
       </div>
       <label htmlFor="car">
         Carro:

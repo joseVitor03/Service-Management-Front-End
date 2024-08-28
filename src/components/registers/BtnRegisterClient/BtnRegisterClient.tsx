@@ -8,6 +8,7 @@ export default function BtnRegisterClient() {
   return (
     <div>
       <button
+        id="btnRegisterClient"
         className={styles.btnRegister}
         type="button"
         onClick={() => router.push('/clients/newClient')}

@@ -6,25 +6,28 @@ import { use, useEffect, useState } from 'react';
 import { ServiceContext } from '@/app/context/ServiceContext';
 import styles from './EmployeeService.module.css';
 
+type EmployeeInPageType = {
+  id: number,
+  name: string,
+  description: string,
+  labor: number
+};
+
+const INITIAL_STATE = {
+  id: 0,
+  name: '',
+  labor: 0,
+  description: '',
+};
+
 export default function EmployeeService() {
-  type EmployeeInPageType = {
-    id: number,
-    name: string,
-    description: string,
-    labor: number
-  };
   const router = useRouter();
   const {
     dataNewService, setDataNewService,
     dataNewServiceInPage, setDataNewServiceInPage, setListEmployees,
     listEmployees,
   } = use(ServiceContext);
-  const [employeeService, setEmployeeService] = useState<EmployeeInPageType>({
-    id: 0,
-    name: '',
-    labor: 0,
-    description: '',
-  });
+  const [employeeService, setEmployeeService] = useState<EmployeeInPageType>(INITIAL_STATE);
 
   useEffect(() => {
     const load = async () => {
@@ -72,12 +75,14 @@ export default function EmployeeService() {
         },
       ],
     });
+    setEmployeeService(INITIAL_STATE);
   };
 
   return (
     <div className={styles.card}>
-      <h3>Funcionario(s) no serviço:</h3>
+      <h3>Funcionário(s) no serviço:</h3>
       <select
+        id="employeeService"
         onChange={(e) => handleChangeSelect(e)}
         name=""
       >
@@ -106,12 +111,15 @@ export default function EmployeeService() {
       <label htmlFor="labor">
         Valor do serviço:
         <input
+          value={employeeService.labor}
           onChange={(e) => handleChangeInputs(e)}
           type="number"
           id="labor"
+          placeholder="100.50"
         />
       </label>
       <button
+        id="btnAddLabor"
         disabled={employeeService.id === 0 || employeeService.labor === 0}
         type="button"
         onClick={handleAddEmployee}

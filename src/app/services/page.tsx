@@ -9,12 +9,12 @@ import SearchForm from '../../components/services/SearchForm/SearchForm';
 import BtnServicePaid from '../../components/services/BtnServicePaid/BtnServicePaid';
 
 export default async function Services() {
-  const token = cookies().get('token-oficina');
+  const token = cookies().get('token-oficina')?.value;
   if (!token) {
     redirect('/');
   }
 
-  const data = await loadServices();
+  const data = await loadServices(token);
 
   return (
     <div className={styles.main}>

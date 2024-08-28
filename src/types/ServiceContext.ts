@@ -1,6 +1,6 @@
 import { SetStateAction, Dispatch } from 'react';
 import {
-  Client, Employee, NewServiceType, Pieces, Service,
+  Client, Employee, NewServiceType, Itens, Service,
 } from './Services';
 
 export type FilterDataType = {
@@ -25,7 +25,7 @@ export type NewServiceInPage = {
   date: string,
   paymentStatus: boolean,
   principalEmployee: Employee,
-  pieces: Pieces[],
+  itens: Itens[],
   employeeServices: EmployeeInPageType[],
 };
 

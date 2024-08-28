@@ -2,45 +2,45 @@
 
 import { MdCancel } from 'react-icons/md';
 import { SetStateAction, use, useState } from 'react';
-import { Pieces } from '@/types/Services';
+import { Itens } from '@/types/Services';
 import { ServiceContext } from '@/app/context/ServiceContext';
-import styles from './ModalSelectPieces.module.css';
+import styles from './ModalSelectItens.module.css';
 
-type ModalSelectPiecesTypes = {
-  pieces: { id: number, name: string }[],
+type ModalSelectItensTypes = {
+  itens: { id: number, name: string }[],
   setModal: React.Dispatch<SetStateAction<boolean>>,
 };
 export default function ModalSelectPieces({
-  pieces, setModal,
-}: ModalSelectPiecesTypes) {
+  itens, setModal,
+}: ModalSelectItensTypes) {
   const {
     dataNewService, setDataNewService,
     setDataNewServiceInPage, dataNewServiceInPage,
   } = use(ServiceContext);
-  const [selectedPiece, setSelectedPiece] = useState<Pieces>({
+  const [selectedItem, setSelectedItem] = useState<Itens>({
     id: 0, name: '', qtdUnit: 0, priceUnit: '',
   });
 
-  const selectPiece = (piece: { id: number, name: string }) => {
-    setSelectedPiece({ ...selectedPiece, id: piece.id, name: piece.name });
+  const selectItem = (item: { id: number, name: string }) => {
+    setSelectedItem({ ...selectedItem, id: item.id, name: item.name });
   };
 
-  const addPieceInService = () => {
+  const addItemInService = () => {
     const total = dataNewServiceInPage.totalService
-      + Number(selectedPiece.priceUnit) * selectedPiece.qtdUnit;
+      + Number(selectedItem.priceUnit) * selectedItem.qtdUnit;
 
     setDataNewServiceInPage({
       ...dataNewServiceInPage,
       totalService: total,
-      pieces: [...dataNewServiceInPage.pieces, selectedPiece],
+      itens: [...dataNewServiceInPage.itens, selectedItem],
     });
     setDataNewService({
       ...dataNewService,
       totalService: total,
-      pieces: [...dataNewService.pieces, {
-        qtdUnit: selectedPiece.qtdUnit,
-        pieceId: selectedPiece.id,
-        priceUnit: Number(selectedPiece.priceUnit),
+      itens: [...dataNewService.itens, {
+        qtdUnit: selectedItem.qtdUnit,
+        itemId: selectedItem.id,
+        priceUnit: Number(selectedItem.priceUnit),
       }],
     });
     setModal(false);
@@ -49,22 +49,22 @@ export default function ModalSelectPieces({
   return (
     <div className={styles.cardModal}>
       <MdCancel onClick={() => setModal(false)} className={styles.cancel} />
-      <div className={styles.cardsPieces}>
-        {pieces.map((piece) => (
+      <div className={styles.cardsItens}>
+        {itens.map((item) => (
           <div
-            onClick={() => selectPiece(piece)}
-            className={styles.cardPiece}
-            key={piece.id}
+            onClick={() => selectItem(item)}
+            className={styles.cardItem}
+            key={item.id}
           >
-            <h4>{piece.name}</h4>
-            { selectedPiece.id === piece.id && (
+            <h4>{item.name}</h4>
+            { selectedItem.id === item.id && (
               <>
                 <div className={styles.containerPriceAndQtd}>
                   <label htmlFor="qtdUnit">
                     qtdUnit:
                     <input
-                      onChange={(e) => setSelectedPiece(
-                        { ...selectedPiece, qtdUnit: Number(e.currentTarget.value) },
+                      onChange={(e) => setSelectedItem(
+                        { ...selectedItem, qtdUnit: Number(e.currentTarget.value) },
                       )}
                       placeholder="2"
                       type="number"
@@ -74,8 +74,8 @@ export default function ModalSelectPieces({
                   <label htmlFor="priceUnit">
                     Preço Unit:
                     <input
-                      onChange={(e) => setSelectedPiece(
-                        { ...selectedPiece, priceUnit: e.currentTarget.value },
+                      onChange={(e) => setSelectedItem(
+                        { ...selectedItem, priceUnit: e.currentTarget.value },
                       )}
                       placeholder="200.50"
                       type="number"
@@ -85,13 +85,14 @@ export default function ModalSelectPieces({
                 </div>
                 <div className={styles.containerBtn}>
                   <button
-                    onClick={addPieceInService}
+                    id="btnAddItem"
+                    onClick={addItemInService}
                     disabled={
-                    selectedPiece.priceUnit === '' || selectedPiece.qtdUnit === 0
+                    selectedItem.priceUnit === '' || selectedItem.qtdUnit === 0
                   }
                     type="button"
                   >
-                    Adicionar Peça
+                    Adicionar Item
                   </button>
                 </div>
               </>

@@ -9,6 +9,7 @@ export default function BtnRegisterService() {
     <div>
 
       <button
+        id="btnRegisterService"
         className={styles.btnRegister}
         type="button"
         onClick={() => router.push('/services/newService')}

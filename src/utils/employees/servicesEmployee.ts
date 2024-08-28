@@ -8,7 +8,7 @@ export default async function servicesEmployees({ id, dateInitial, dateFinal }: 
   id: number, dateInitial: string, dateFinal: string
 }) {
   const token = cookies().get('token-oficina')?.value;
-  const data = await fetch(`${API}/employee/services/${id}`, {
+  const data = await fetch(`${API}/employee/${id}/services`, {
     method: 'POST',
     body: JSON.stringify({ dateFinal, dateInitial }),
     headers: {

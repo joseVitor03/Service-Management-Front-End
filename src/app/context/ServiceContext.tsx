@@ -27,7 +27,7 @@ export const INITIAL_STATE_NEW_SERVICE_IN_PAGE = {
     id: 0,
     name: '',
   },
-  pieces: [],
+  itens: [],
   employeeServices: [],
 };
 
@@ -37,7 +37,7 @@ export const INITIAL_STATE_NEW_SERVICE = {
   date: CURRENT_DATE,
   paymentStatus: false,
   principalEmployeeId: 0,
-  pieces: [],
+  itens: [],
   employeeServices: [],
 };
 

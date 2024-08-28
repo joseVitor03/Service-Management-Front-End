@@ -17,7 +17,10 @@ export default function IconAddClient() {
     }, 1500);
   };
   return (
-    <div>
+    <div
+      id="btnAddClient"
+      title="cadastrar cliente"
+    >
       {cliked ? (
         <Oval
           visible
@@ -31,6 +34,7 @@ export default function IconAddClient() {
         />
       ) : (
         <PiUserCirclePlusFill
+          id="btnAddClient"
           title="cadastrar cliente"
           className={styles.icon}
           onClick={changePage}

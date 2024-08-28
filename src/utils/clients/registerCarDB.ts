@@ -1,7 +1,6 @@
 'use server';
 
 import { Car } from '@/types/Services';
-import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
@@ -15,9 +14,6 @@ export default async function registerCarDB(car: Omit<Car, 'id'>) {
     },
     body: JSON.stringify(car),
   });
-  if (data.status !== 201) {
-    redirect('/');
-  }
   const result = await data.json();
-  return result;
+  return { status: data.status, data: result.message };
 }

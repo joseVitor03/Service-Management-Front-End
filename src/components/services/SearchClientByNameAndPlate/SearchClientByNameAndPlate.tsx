@@ -19,7 +19,6 @@ export default function SearchClientByNameAndPlate() {
 
   const loadClients = async () => {
     const result = await loadClientByNameAndPlate(searchClient);
-    console.log(result);
 
     setClients(result);
     if (result.length > 0) {
@@ -78,13 +77,14 @@ export default function SearchClientByNameAndPlate() {
                 />
               </label>
               <button
+                id="searchClient"
                 onClick={loadClients}
                 disabled={(searchClient.name.length === 0
         && searchClient.plate.length === 0) || (searchClient.plate.length > 0
           && !searchClient.plate.match(REGEXPLATE))}
                 type="button"
               >
-                Buscar
+                Buscar cliente
               </button>
               <h5>
                 Caso o cliente não seja cadastrado clique

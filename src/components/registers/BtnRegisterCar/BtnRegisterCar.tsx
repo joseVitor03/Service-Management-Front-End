@@ -11,13 +11,21 @@ export default function BtnRegisterCar() {
   const [register, setRegister] = useState(false);
 
   const registerCar = async (formCar: Omit<Car, 'id'>) => {
-    await registerCarDB(formCar);
-    setRegister(false);
-    Swal.fire({
-      icon: 'success',
-      title: 'Carro cadastrado',
-      timer: 2000,
-    });
+    const { status, data } = await registerCarDB(formCar);
+    if (status !== 201) {
+      setRegister(false);
+      Swal.fire({
+        icon: 'error',
+        title: data,
+        timer: 2000,
+      });
+    } else {
+      Swal.fire({
+        icon: 'success',
+        title: 'Carro cadastrado',
+        timer: 2000,
+      });
+    }
   };
   return (
     <div className={styles.card}>
@@ -29,11 +37,12 @@ export default function BtnRegisterCar() {
         )
         : (
           <button
+            id="btnRegisterCar"
             onClick={() => setRegister(true)}
             type="button"
             className={styles.btnRegister}
           >
-            Cadastrar carro
+            Cadastrar Carro
           </button>
         )}
     </div>

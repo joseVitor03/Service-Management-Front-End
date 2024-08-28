@@ -2,7 +2,6 @@
 
 import { Client } from '@/types/Services';
 import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL as string;
 export default async function updateDataClientDB(client:Client) {
@@ -21,7 +20,6 @@ export default async function updateDataClientDB(client:Client) {
       carColor: client.carColor,
     }),
   });
-  if (data.status !== 200) {
-    redirect('/');
-  }
+
+  return data.status;
 }
