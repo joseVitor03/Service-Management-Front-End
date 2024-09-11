@@ -3,10 +3,9 @@
 import { useState } from 'react';
 import { Car, Client } from '@/types/Services';
 import loadCarsByBrand from '@/utils/clients/loadCarsByBrand';
-import { IoRefreshCircleSharp } from 'react-icons/io5';
 import registerCarDB from '@/utils/clients/registerCarDB';
 import styles from './FormUpdateClient.module.css';
-import FormRegistrationCar from '../FormRegistrationCar/FormRegistrationCar';
+import ModalSelectCar from '../ModalSelectCar/ModalSelectCar';
 
 export default function FormUpdateClient({ client, updateDataClient }:
 { client: Client, updateDataClient: ({ client, event }:
@@ -19,20 +18,22 @@ export default function FormUpdateClient({ client, updateDataClient }:
   const [listCars, setListCars] = useState<Car[]>([]);
   const [nameCar, setNameCar] = useState('');
   const [registerCarToogle, setRegisterCarToogle] = useState(false);
+  const [modalSelectCarToogle, setModalSelectCarToogle] = useState(false);
 
   const registerCar = async (formCar: Omit<Car, 'id'>) => {
     await registerCarDB(formCar);
-    const result = await loadCarsByBrand(form.car.brand);
+    const result = await loadCarsByBrand(form.car!.brand);
     setInitialCars(result);
     setListCars(result);
     setRegisterCarToogle(!registerCarToogle);
   };
 
   const loadCars = async () => {
-    if (form.car.brand !== '') {
-      const result = await loadCarsByBrand(form.car.brand);
+    if (form.car!.brand !== '') {
+      const result = await loadCarsByBrand(form.car!.brand);
       setInitialCars(result);
       setListCars(result);
+      setModalSelectCarToogle(true);
     }
   };
 
@@ -49,20 +50,19 @@ export default function FormUpdateClient({ client, updateDataClient }:
   return (
     <div className={styles.container}>
       <form onSubmit={(event) => updateDataClient({ client: form, event })} className={styles.form}>
-        <h3>Dados:</h3>
         <label htmlFor="name">
           Nome:
           <input
             id="name"
             value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.currentTarget.value })}
+            onChange={(e) => setForm({ ...form, name: e.currentTarget.value.toLocaleUpperCase() })}
             type="text"
           />
         </label>
         <select
           onChange={(e) => setForm({ ...form, car: { ...form.car, brand: e.currentTarget.value } })}
           name="cars"
-          value={form.car.brand}
+          value={form.car!.brand}
           id="cars"
         >
           <option value="">SELECIONAR</option>
@@ -127,69 +127,23 @@ export default function FormUpdateClient({ client, updateDataClient }:
           Atualizar dados
         </button>
       </form>
-      <div className={styles.containerCars}>
-        <div className={styles.containerFilter}>
-          <h3>Filtrar Carros:</h3>
-          <label htmlFor="car">
-            Nome carro:
-            <input
-              id="car"
-              value={nameCar}
-              onChange={(e) => setNameCar(e.currentTarget.value)}
-              type="text"
-              placeholder="nome carro..."
-            />
-          </label>
-          <button className={styles.btnFilter} onClick={filterCar} type="button">Buscar</button>
-
-          { listInitialCars.length !== 0 && (
-          <div className={styles.containerRefreshAndRegisterCar}>
-            <h5>
-              Não encontrou o carro desejado?
-              Cadastre
-              <div
-                className={styles.btnToogleCar}
-                onClick={() => setRegisterCarToogle(true)}
-              >
-                aqui.
-              </div>
-            </h5>
-          </div>
-          )}
-          { registerCarToogle && (
-          <FormRegistrationCar
-            cancel={setRegisterCarToogle}
+      { modalSelectCarToogle && (
+        <div className={styles.containerCar}>
+          <ModalSelectCar
+            setForm={setForm}
+            setNameCar={setNameCar}
+            nameCar={nameCar}
+            filterCar={filterCar}
+            refresh={refresh}
+            listCars={listCars}
+            setModalSelectCarToogle={setModalSelectCarToogle}
+            form={form}
+            setRegisterCarToogle={setRegisterCarToogle}
             registerCar={registerCar}
+            registerCarToogle={registerCarToogle}
           />
-          )}
         </div>
-        {!registerCarToogle && listInitialCars.length > 0
-          && (
-            <div className={styles.containerRefresh}>
-              <IoRefreshCircleSharp title="remover filtragem" className={styles.refresh} onClick={refresh} />
-            </div>
-          )}
-        {!registerCarToogle && (
-        <div className={styles.containerCards}>
-          { listCars.length > 0 && listCars.map((car) => (
-            <div
-              className={styles.card}
-              key={car.id}
-              onClick={() => setForm({ ...form, car })}
-            >
-              <p>
-                Nome:
-                {car.name}
-              </p>
-              <p>
-                Ano:
-                {car.year}
-              </p>
-            </div>
-          ))}
-        </div>
-        )}
-      </div>
+      ) }
     </div>
   );
 }

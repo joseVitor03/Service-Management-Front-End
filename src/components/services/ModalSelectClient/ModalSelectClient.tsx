@@ -15,8 +15,17 @@ export default function ModalSelectClient({ clients, setModal, setClientChange }
   } = use(ServiceContext);
 
   const selectClient = (client: Client) => {
-    setDataNewService({ ...dataNewService, clientId: client.id });
-    setDataNewServiceInPage({ ...dataNewServiceInPage, client });
+    setDataNewService({
+      ...dataNewService,
+      clientId: client.id,
+      carColor: client.carColor,
+      plate: client.plate,
+      carId: client.car?.id as number,
+    });
+    setDataNewServiceInPage({
+      ...dataNewServiceInPage,
+      client,
+    });
     setModal(false);
     setClientChange(false);
   };
@@ -32,7 +41,7 @@ export default function ModalSelectClient({ clients, setModal, setClientChange }
           >
             <h3>{client.name}</h3>
             <h4>
-              {client.car.name}
+              {client.car?.name}
               {' '}
               -
               {' '}

@@ -61,12 +61,28 @@
 }
 
 .containerUpdate {
-  display: flex;
-  width: 90%;
-  height: 55vh;
+  width: 50%;
   margin: 2% auto;
   border: 2px solid black;
   border-radius: 10px;
+}
+
+.containerCancel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cancel {
+  font-size: 30px;
+  margin: 1%;
+}
+
+.containerUpdate h3 {
+  margin-top: -4%;
+  text-align: center;
 }
 
 .containerUpdate button {
@@ -78,10 +94,6 @@
   margin: 2% auto;
 }
 
-.cancel {
-  font-size: 30px;
-  margin: 1%;
-}
 
 .cancel:hover {
   cursor: pointer;

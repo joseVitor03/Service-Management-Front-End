@@ -9,7 +9,7 @@ export default async function loadServiceDetails(id: string) {
   if (!token) {
     redirect('/');
   }
-  const data = await fetch(`${API}/services/findService/${id}`, {
+  const data = await fetch(`${API}/services/${id}`, {
     headers: {
       Authorization: `Bearer ${token.value}`,
     },

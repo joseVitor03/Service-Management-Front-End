@@ -4,10 +4,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding: 2%; */
+  padding: 2%;
   border-radius: 10px;
   border: 2px solid black;
-  margin-top: 5%;
+  margin: 1% auto;
+}
+
+.form select, .form input {
+  width: 100%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid black;
 }
 
 .header {

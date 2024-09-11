@@ -24,9 +24,9 @@ export default function SearchForm() {
     if (filterData.dateInitial.length === 10 && filterData.dateFinal.length === 10) {
       const result = services.filter((service) => (
         service.client.name.toLocaleLowerCase().includes(filterData.clientName.toLocaleLowerCase())
-        && service.client.car.name.toLowerCase().includes(filterData.carName.toLocaleLowerCase())
-        && service.client.plate.toLocaleUpperCase().includes(filterForm.plate.toLocaleUpperCase())
-        && String(service.client.car.year).includes(filterData.year)
+        && service.car.name.toLowerCase().includes(filterData.carName.toLocaleLowerCase())
+        && service.plate.toLocaleUpperCase().includes(filterForm.plate.toLocaleUpperCase())
+        && String(service.car.year).includes(filterData.year)
         && service.date >= filterData.dateInitial) && service.date <= filterData.dateFinal
       && service.paymentStatus === paidServices);
 
@@ -34,9 +34,9 @@ export default function SearchForm() {
     } else {
       const result = services.filter((service) => (
         service.client.name.toLocaleLowerCase().includes(filterData.clientName.toLocaleLowerCase())
-        && service.client.car.name.toLowerCase().includes(filterData.carName.toLocaleLowerCase())
-        && service.client.plate.toLocaleUpperCase().includes(filterForm.plate.toLocaleUpperCase())
-        && String(service.client.car.year).includes(filterData.year))
+        && service.car.name.toLowerCase().includes(filterData.carName.toLocaleLowerCase())
+        && service.plate.toLocaleUpperCase().includes(filterForm.plate.toLocaleUpperCase())
+        && String(service.car.year).includes(filterData.year))
         && service.paymentStatus === paidServices);
       setServices(result);
     }

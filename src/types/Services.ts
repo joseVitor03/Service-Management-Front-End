@@ -11,11 +11,14 @@ export type Client = {
   phone: string;
   carColor: string;
   plate: string;
-  car: Car;
+  car: Car
 };
 
 export type Service = {
   id: number;
+  plate: string;
+  carColor: string;
+  car: Car;
   totalService: string;
   date: string;
   paymentStatus: boolean;
@@ -46,12 +49,14 @@ export type BasicDataService = {
     phone: string,
     carColor: string,
     plate: string,
-    car: {
-      id: number,
-      name: string,
-      year: number,
-      brand: string
-    }
+  },
+  carColor: string,
+  plate: string,
+  car: {
+    id: number,
+    name: string,
+    year: number,
+    brand: string
   }
 };
 
@@ -85,6 +90,9 @@ type EmployeeService = {
 export type NewServiceType = {
   clientId: number,
   totalService: number,
+  carColor: string,
+  plate: string,
+  carId: number,
   date: string,
   paymentStatus: boolean,
   principalEmployeeId: number,

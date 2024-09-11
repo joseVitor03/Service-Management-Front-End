@@ -34,10 +34,8 @@ describe('ClientDetails', () => {
     cy.get('button').should('contain.text', 'Buscar carro');
     cy.get('#carColor').should('be.visible');
     cy.get('#plate').should('be.visible');
-    cy.get('#phone').should('be.visible').as('phone');
+    cy.get('#phone').should('exist').as('phone');
     cy.get('#btnUpdateClient').should('contain.text', 'Atualizar dados').should('be.disabled').as('btnUpdate');
-    cy.get('h3').should('contain.text', 'Filtrar Carros:');
-    cy.get('#car').should('be.visible').should('have.attr', 'placeholder', 'nome carro...');
     cy.get('button').should('contain.text', 'Buscar');
 
     cy.get('@phone').clear().type('12 34567-8901');

@@ -60,13 +60,19 @@ export default function ClientData() {
   { client: Client, event: React.FormEvent<HTMLFormElement> }) => {
     event.preventDefault();
     const result = await updateDataClientDB(client);
-    if (result !== 200) {
+    if (result === 401 || result === 403) {
       Swal.fire({
         icon: 'error',
         title: 'Ocorreu um erro!',
         timer: 2000,
       });
       router.push('/');
+    } else if (result === 400) {
+      Swal.fire({
+        icon: 'info',
+        title: 'Os dados ainda são os mesmos.',
+        timer: 2000,
+      });
     } else {
       Swal.fire({
         icon: 'success',
@@ -81,7 +87,8 @@ export default function ClientData() {
   useEffect(() => {
     const load = async () => {
       const result = await loadServicesByClient(id as string);
-      if (result.services.message || result.dataClient.message) {
+
+      if (result.dataClient.message) {
         router.push('/');
       } else {
         setData({ dataClient: result.dataClient, services: result.services });
@@ -107,17 +114,17 @@ export default function ClientData() {
         <p>
           Carro:
           {' '}
-          {data.dataClient.car.name}
+          {data.dataClient.car?.name}
         </p>
         <p>
           Marca:
           {' '}
-          {data.dataClient.car.brand}
+          {data.dataClient.car?.brand}
         </p>
         <p>
           Ano:
           {' '}
-          {data.dataClient.car.year}
+          {data.dataClient.car?.year}
         </p>
         <p>
           Cor carro:
@@ -138,8 +145,11 @@ export default function ClientData() {
         {formUpdateClient
         && (
           <div className={styles.containerUpdate}>
+            <div className={styles.containerCancel}>
+              <MdCancel onClick={() => setFormUpdateClient(false)} className={styles.cancel} />
+            </div>
+            <h3>Dados:</h3>
             <FormUpdateClient client={data.dataClient} updateDataClient={updateDataClient} />
-            <MdCancel onClick={() => setFormUpdateClient(false)} className={styles.cancel} />
           </div>
         )}
       </section>

@@ -66,12 +66,12 @@ export default function ClientData() {
             <h4>
               Carro:
               {' '}
-              {dataNewServiceInPage.client.car.name}
+              {dataNewServiceInPage.client.car?.name}
             </h4>
             <h4>
               Ano:
               {' '}
-              {dataNewServiceInPage.client.car.year}
+              {dataNewServiceInPage.client.car?.year}
             </h4>
             <h4>
               Cor:

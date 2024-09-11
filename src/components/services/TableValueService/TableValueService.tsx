@@ -19,7 +19,7 @@ export default function TableValueService({ data }: PropsService) {
   return (
     <tbody className={styles.dataService}>
       { !paidServices ? services.map(({
-        id, client, totalService, paymentStatus, date,
+        id, client, totalService, paymentStatus, date, car, plate, carColor,
       }) => (
         (!paymentStatus
           && (
@@ -28,10 +28,10 @@ export default function TableValueService({ data }: PropsService) {
               onClick={() => router.push(`/services/${id}`)}
             >
               <td>{!client.name ? '' : client.name}</td>
-              <td>{client.car.name}</td>
-              <td>{client.carColor}</td>
-              <td>{client.car.year}</td>
-              <td>{client.plate}</td>
+              <td>{car.name}</td>
+              <td>{carColor}</td>
+              <td>{car.year}</td>
+              <td>{plate}</td>
               <td>{totalService}</td>
               <td>
                 <p className={styles.paymentFalse}>Pendende</p>
@@ -39,7 +39,7 @@ export default function TableValueService({ data }: PropsService) {
               <td>{date.split('-').reverse().join('-')}</td>
             </tr>
           )))) : services.map(({
-        id, client, totalService, paymentStatus, date,
+        id, client, totalService, paymentStatus, date, car, carColor, plate,
       }) => (
         (paymentStatus
           && (
@@ -48,10 +48,10 @@ export default function TableValueService({ data }: PropsService) {
               onClick={() => router.push(`/services/${id}`)}
             >
               <td>{client.name}</td>
-              <td>{client.car.name}</td>
-              <td>{client.carColor}</td>
-              <td>{client.car.year}</td>
-              <td>{client.plate}</td>
+              <td>{car.name}</td>
+              <td>{carColor}</td>
+              <td>{car.year}</td>
+              <td>{plate}</td>
               <td>{totalService}</td>
               <td>
                 <p className={styles.paymentTrue}>Pago</p>

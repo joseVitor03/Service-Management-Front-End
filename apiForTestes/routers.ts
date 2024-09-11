@@ -36,7 +36,7 @@ router.get('/services/paymentStatusTrue', (_req, res:Response) => res.status(200
 
 router.get('/services/client/:id', (_req, res:Response) => res.status(200).json(servicesByClientMock));
 
-router.get('/services/findService/:id', (_req: Request, res: Response) => res.status(200).json(finalFindServiceResult));
+router.get('/services/:id', (_req: Request, res: Response) => res.status(200).json(finalFindServiceResult));
 
 router.get('/clients', (_req: Request, res: Response) => res.status(200).json(mockListClients));
 
@@ -50,15 +50,15 @@ router.put('/clients/:id', (_req: Request, res: Response) => res.status(200).jso
 
 router.delete('/clients/:id', (_req: Request, res: Response) => res.status(200).json({ message: 'cliente deletado.' }));
 
-router.get('/employee', (_req: Request, res: Response) => res.status(200).json(mockFindEmployeesAll));
+router.get('/employees', (_req: Request, res: Response) => res.status(200).json(mockFindEmployeesAll));
 
-router.post('/employee', (_req: Request, res: Response) => res.status(201).json({ id: 3, name: 'CLEBER' }));
+router.post('/employees', (_req: Request, res: Response) => res.status(201).json({ id: 3, name: 'CLEBER' }));
 
-router.delete('/employee/:id', (_req: Request, res: Response) => res.status(200).json({ message: 'funcionário removido' }));
+router.delete('/employees/:id', (_req: Request, res: Response) => res.status(200).json({ message: 'funcionário removido' }));
 
-router.post('/employee/:id/services', (_req: Request, res: Response) => res.status(200).json(employeeProductivityByDateFinalMock));
+router.post('/employees/:id/services', (_req: Request, res: Response) => res.status(200).json(employeeProductivityByDateFinalMock));
 
-router.get('/employee/:id/services', (_req: Request, res: Response) => res.status(200).json(employeeServices));
+router.get('/employees/:id/services', (_req: Request, res: Response) => res.status(200).json(employeeServices));
 
 router.post('/cars', (_req: Request, res: Response) => res.status(201).json({ message: 'carro cadastrado' }));
 

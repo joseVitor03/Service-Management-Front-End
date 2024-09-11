@@ -27,12 +27,14 @@ const INITIAL_STATE_SERVICE_DETAILS = {
       phone: '',
       carColor: '',
       plate: '',
-      car: {
-        id: 0,
-        brand: '',
-        name: '',
-        year: 0,
-      },
+    },
+    carColor: '',
+    plate: '',
+    car: {
+      id: 0,
+      brand: '',
+      name: '',
+      year: 0,
     },
     principalEmployee: {
       id: 0,
@@ -175,22 +177,22 @@ export default function Service() {
               <h4>
                 Carro:
                 {' '}
-                {service.basicServiceData.client.car.name}
+                {service.basicServiceData.car.name}
               </h4>
               <h4>
                 Ano:
                 {' '}
-                {service.basicServiceData.client.car.year}
+                {service.basicServiceData.car.year}
               </h4>
               <h4>
                 Cor:
                 {' '}
-                {service.basicServiceData.client.carColor}
+                {service.basicServiceData.carColor}
               </h4>
               <h4>
                 Placa:
                 {' '}
-                {service.basicServiceData.client.plate}
+                {service.basicServiceData.plate}
               </h4>
               <h4 className={styles.mechanic}>
                 Mecânico responsavel:
