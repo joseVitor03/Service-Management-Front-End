@@ -121,6 +121,56 @@ npm run cypress
 
 <h3 id="#login">Página de login</h3>
 
-<img width="700px" src="./readmeAssets/Captura de tela de 2024-09-11 19-31-46.png" />
+<div align="center">
+    <img width="700px" src="./readmeAssets/page-login.png" />
+</div>
+
+<h3 id="#login">Página de serviços</h3>
+
+<div align="center">
+    <img width="700px" src="./readmeAssets/page-services.png" />
+</div>
+
+<h3 id="#login">Página de detalhes do serviço</h3>
+
+<div align="center">
+    <img width="700px" src="./readmeAssets/page-details-service.png" />
+</div>
+
+<h3 id="#login">Página de novo serviço</h3>
+
+<div align="center">
+    <img width="700px" src="./readmeAssets/page-new-service.png" />
+</div>
+
+<h3 id="#login">Página de clientes</h3>
+
+<div align="center">
+    <img width="700px" src="./readmeAssets/page-clients.png" />
+</div>
+
+<h3 id="#login">Página de detalhes do cliente</h3>
+
+<div align="center">
+    <img width="700px" src="./readmeAssets/page-details-client.png" />
+</div>
+
+<h3 id="#login">Página de novo cliente</h3>
+
+<div align="center">
+    <img width="700px" src="./readmeAssets/page-new-client.png" />
+</div>
+
+<h3 id="#login">Página de funcionários</h3>
+
+<div align="center">
+    <img width="700px" src="./readmeAssets/page-employees.png" />
+</div>
+
+<h3 id="#login">Página de registros</h3>
+
+<div align="center">
+    <img width="700px" src="./readmeAssets/page-registers.png" />
+</div>
 
 </details>
