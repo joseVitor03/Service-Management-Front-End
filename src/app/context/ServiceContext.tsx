@@ -34,6 +34,9 @@ export const INITIAL_STATE_NEW_SERVICE_IN_PAGE = {
 export const INITIAL_STATE_NEW_SERVICE = {
   clientId: 0,
   totalService: 0,
+  carId: 0,
+  plate: '',
+  carColor: '',
   date: CURRENT_DATE,
   paymentStatus: false,
   principalEmployeeId: 0,

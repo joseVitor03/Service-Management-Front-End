@@ -122,7 +122,7 @@ npm run cypress
 <h3 id="#login">Página de login</h3>
 
 <div align="center">
-    <img width="700px" src="./readmeAssets/Gravação-de-tela-de-12-09-2024-11_16_00.gif" />
+    <img width="700px" src="./readmeAssets/page-login.png" />
 </div>
 
 <h3 id="#login">Página de serviços</h3>
