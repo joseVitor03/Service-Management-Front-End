@@ -17,6 +17,7 @@ export default function BtnRegisterItem() {
         icon: 'error',
         title: result.message,
         timer: 2000,
+        showConfirmButton: false,
       });
     } else {
       setRegister(false);
@@ -24,6 +25,7 @@ export default function BtnRegisterItem() {
         icon: 'success',
         title: 'Item cadastrado',
         timer: 2000,
+        showConfirmButton: false,
       });
     }
   };

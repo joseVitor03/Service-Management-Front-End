@@ -48,12 +48,14 @@ export default function FormRegistrationClient() {
           icon: 'error',
           text: result.message,
           timer: 3000,
+          showConfirmButton: false,
         });
       } else {
         Swal.fire({
           icon: 'success',
           title: 'cliente cadastrado',
           timer: 3000,
+          showConfirmButton: false,
         });
         router.push('/clients');
       }

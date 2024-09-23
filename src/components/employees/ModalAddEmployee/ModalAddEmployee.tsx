@@ -23,6 +23,7 @@ export default function ModalAddEmployee({ setModalAddEmployee }: {
         icon: 'success',
         timer: 2000,
         title: 'Funcionário cadastrado.',
+        showConfirmButton: false,
       });
     }
     setModalAddEmployee(false);

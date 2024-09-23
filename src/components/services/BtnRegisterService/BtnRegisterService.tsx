@@ -20,6 +20,7 @@ export default function BtnRegisterService() {
         title: 'Algo deu errado!',
         text: 'Tente Novamente',
         timer: 2000,
+        showConfirmButton: false,
       });
     } else {
       Swal.fire({

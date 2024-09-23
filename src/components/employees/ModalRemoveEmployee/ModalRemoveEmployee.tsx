@@ -18,6 +18,7 @@ export default function ModalRemoveEmployee({ employee, setModalRemoveEmployee }
           icon: 'success',
           timer: 2000,
           title: 'funcionário removido',
+          showConfirmButton: false,
         });
       } else {
         router.push('/');

@@ -28,6 +28,7 @@ export default function SearchClientByNameAndPlate() {
         icon: 'error',
         title: result.message,
         timer: 2000,
+        showConfirmButton: false,
       });
     }
   };

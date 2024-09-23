@@ -18,12 +18,14 @@ export default function BtnRegisterCar() {
         icon: 'error',
         title: data,
         timer: 2000,
+        showConfirmButton: false,
       });
     } else {
       Swal.fire({
         icon: 'success',
         title: 'Carro cadastrado',
         timer: 2000,
+        showConfirmButton: false,
       });
     }
   };

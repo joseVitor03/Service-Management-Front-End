@@ -32,6 +32,7 @@ function FormLogin() {
           icon: 'warning',
           title: 'Email ou senha incorreta',
           timer: 3000,
+          showConfirmButton: false,
         });
       }
     } else {
@@ -39,6 +40,7 @@ function FormLogin() {
         icon: 'info',
         title: 'email ou senha com formato incorreto.',
         timer: 3000,
+        showConfirmButton: false,
       });
     }
     setIsLoading(false);

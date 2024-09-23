@@ -22,6 +22,7 @@ export default function ItensService() {
       Swal.fire({
         icon: 'info',
         title: 'nenhum item encontrado.',
+        showConfirmButton: false,
       });
     }
   };
