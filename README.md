@@ -8,6 +8,9 @@
 - Como rodar os testes?
 - App em Funcionamento
 
+## Onde acessar a aplicação?
+Caso queira acessar a aplicação utilize essas credenciais: no campo de email: `example@gmail.com` e senha: `Ab12345678@`. Acesse [aqui](service-management-front-end.vercel.app)
+
 ## O que é esse projeto? E o que é possivel fazer?
 
 **O Service Management tem como objetivo fazer o gerenciamento dos serviços de uma oficina mecânica de automóveis.**
